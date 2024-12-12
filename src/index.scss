@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+// primary Color : Orange
+
+// #fe6b00
+// rgba(254,107,0,255)
+
+// Secondary Color : Grey
+
+// #222222
+// rgba(34,34,34,255)
+
+// Cream
+
+// #ddcc92
+// rgba(221,204,146,255)
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scroll-snap-type: none;
+}
+
+section{
+  height: 100%;
+  scroll-snap-align: center;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fafafa;
+  margin: 0;
+  padding: 0;
+  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  //   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  //   sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+//     monospace;
+// }
+
+.container {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
