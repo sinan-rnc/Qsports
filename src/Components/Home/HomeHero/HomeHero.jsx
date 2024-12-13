@@ -1,4 +1,4 @@
-import "./Hero.scss"
+import "./HomeHero.scss"
 import { RiBilliardsFill, RiSearch2Fill } from "react-icons/ri";
 import { RiExpandUpDownFill } from "react-icons/ri";
 import herobanner from "../../../Assets/Banner/herobanner.jpg"
@@ -67,10 +67,10 @@ export default function Hero() {
                             </select>
                             <RiExpandUpDownFill/>
                         </div>
-                        <div className={`bars search ${!selectedLocation ? "disabled" : ""}`} onClick={handleSearch}>
+                        <a href="/bars-and-clubs"><div className={`bars search ${!selectedLocation ? "disabled" : ""}`} onClick={handleSearch}>
                             Search 
                             <FaSearch/>
-                        </div>
+                        </div></a>
                     </div>
                 </div>
             </div>

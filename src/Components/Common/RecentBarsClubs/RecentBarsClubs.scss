@@ -29,37 +29,48 @@
 
                 .arrow-div {
                     display: flex;
-
                     align-items: center;
-                    gap: 10px;
+                    gap: 25px;
 
                     h4 {
-                        margin-right: 20px;
+                        margin-right: -20px;
+                        padding: 4px 20px;
+                        clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+                    }
+
+                    h4:hover {
+                        background-color: #eaeaea;
+                        border-radius: 5px;
                     }
 
                     .prev-arrow1 {
                         background-color: #fe6b00;
+                        color: white;
                         border: none;
-                        padding: 10px 30px;
+                        padding: 2px 15px;
                         // border-radius: 50%;
                         cursor: pointer;
                         font-size: 18px;
-                        clip-path: polygon(25px 0%, 100% 0%, calc(100% - 25px) 100%, 0% 100%);
+                        clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
                         margin-right: -30px;
+                        border-radius: 5px;
                     }
 
                     .next-arrow1 {
                         background-color: #fe6b00;
+                        color: white;
                         border: none;
-                        padding: 10px 30px;
+                        padding: 2px 15px;
                         // border-radius: 50%;
                         cursor: pointer;
                         font-size: 18px;
-                        clip-path: polygon(25px 0%, 100% 0%, calc(100% - 25px) 100%, 0% 100%);
+                        clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+                        border-radius: 5px;
                     }
 
                     .prev-arrow1:hover, .next-arrow1:hover {
                         background-color: #ddcc92;
+                        color: black;
                     }
                 }
             }

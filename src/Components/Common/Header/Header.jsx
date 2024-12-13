@@ -6,8 +6,11 @@ import { LuUserRound } from "react-icons/lu";
 import { SiAmazongames } from "react-icons/si";
 import { FaSearch } from "react-icons/fa";
 import { GiPoolTriangle } from "react-icons/gi";
+import { useLocation } from "react-router-dom";
 
 export default function Header() {
+
+    const location = useLocation()
     return (
         <nav>
             <div className="navbar">
@@ -25,21 +28,21 @@ export default function Header() {
                 </div>
                 <div className="navbar_middle">
                     <ul className="menubar">
-                        <a href="/"><li>
+                        <a href="/" className={location.pathname==="/" ? "active" : ""}><li>
                             Home
                         </li></a>
-                        <a href="/about-us"><li>
+                        <a href="/about-us" className={location.pathname==="/about-us" ? "active" : ""}><li>
                             About Us
                         </li></a>
-                        <li>
-                            Tournaments
-                        </li>
-                        <li>
+                        <a href="/bars-and-clubs" className={location.pathname==="/bars-and-clubs" ? "active" : ""}><li>
                             Bars & Clubs
-                        </li>
+                        </li></a>
+                        <a href="/tournaments" className={location.pathname==="/tournaments" ? "active" : ""}><li>
+                            Tournaments
+                        </li></a>
                     </ul>
                     <div className="logo">
-                        <h1><span>Q</span>SPORTS</h1>
+                        <a href="/"><h1><span>Q</span>SPORTS</h1></a>
                         {/* <img src={logo} alt="logo"/> */}
                     </div>
                     <ul className="acc_details">

@@ -1,22 +1,23 @@
-import Hero from "../Components/Home/Hero/Hero";
+import HomeHero from "../Components/Home/HomeHero/HomeHero";
 import BarsClubs from "../Components/Common/BarsClubs/BarsClubs";
-import Tournaments from "../Components/Common/Tournaments/Tournaments";
+import TopTournaments from "../Components/Common/TopTournaments/TopTournaments";
 import RecentBarsClubs from "../Components/Common/RecentBarsClubs/RecentBarsClubs";
 import About from "../Components/Home/About/About";
 import Stats from "../Components/Common/Stats/Stats";
 import Helmet from "../Components/Common/Helmet/Helmet";
+import { Fragment } from "react";
 
-export default function Home() {
+export default function HomePage() {
     return (
-        <section>
+        <Fragment>
             <Helmet title="Home">
-                <Hero/>
+                <HomeHero/>
                 <Stats/>
                 <About/>
                 <BarsClubs/>
-                <Tournaments/>
+                <TopTournaments/>
                 <RecentBarsClubs/>
             </Helmet>
-        </section>
+        </Fragment>
     )
 }

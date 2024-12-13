@@ -16,7 +16,6 @@ export default function BarsClubs() {
         
     //     if (content.style.display === 'block') {
     //         content.style.display = 'none';
-    //         icon.style.transform = 'rotate(0deg)';
     //     } else {
     //         content.style.display = 'block';
     //         icon.style.transform = 'rotate(180deg)';
@@ -25,6 +24,8 @@ export default function BarsClubs() {
 
     const [sortBy, setSortBy] = useState("")
     const [showNo, setShowNo] = useState(barsAndClubs1.length)
+    const [categoryFilter, setCategoryFilter] = useState("")
+    const [tournamentFilter, setTournamentFilter] = useState([])
     
     console.log(sortBy, showNo)
 
