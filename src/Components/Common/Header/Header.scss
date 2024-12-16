@@ -70,14 +70,15 @@
         // border-bottom: 2px solid white;
         color: black;
         background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
         .menubar {
             display: flex;
             gap: 20px;
             align-items: center;
             text-align: center;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
 
             li:hover {
@@ -115,7 +116,7 @@
             display: flex;
             gap: 20px;
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 500;
             align-items: center;
 
                 li {
@@ -166,7 +167,7 @@
         z-index: 2;
         font-weight: 700;
         margin-top: -20px;
-        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
         .serach_game {
             display: flex;
@@ -180,6 +181,7 @@
                 background-color: transparent;
                 border: none;
                 font-size: 16px;
+                font-weight: 500;
                 width: 350px;
                 padding: 8px;
                 clip-path: polygon(0% 0%, 100% 0%, calc(100% - 25px) 100%, 25px 100%);

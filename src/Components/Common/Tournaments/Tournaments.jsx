@@ -69,8 +69,7 @@ export default function BarsClubs() {
                                         </div>
                                         <div className="right">
                                             <p className="price">AED {ele.fees}</p>
-                                            <p>{ele.date}</p>
-                                            <p>At {ele.time}</p>
+                                            <p className="dateNTime">{ele.date} at {ele.time}</p>
                                         </div>
                                     </div>
                                     <div className="bottom">

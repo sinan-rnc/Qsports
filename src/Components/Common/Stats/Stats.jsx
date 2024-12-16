@@ -12,28 +12,28 @@ export default function Stats() {
                     <RiBilliardsFill />
                     <div>
                         <h1>Exciting Tournaments</h1>
-                        <p>Compete and win big.</p>
+                        <p>Compete and win big</p>
                     </div>
                 </div>
                 <div className="stats">
                     <FaCalendarCheck />
                     <div>
                         <h1>Hassle-Free Bookings</h1>
-                        <p>Book your spot now.</p>
+                        <p>Book your spot now</p>
                     </div>
                 </div>
                 <div className="stats">
                     <GrUpdate />
                     <div>
                         <h1>Real-Time Updates</h1>
-                        <p>Stay updated effortlessly.</p>
+                        <p>Stay updated effortlessly</p>
                     </div>
                 </div>
                 <div className="stats">
                     <FaHandshake />
                     <div>
                         <h1>Exclusive Deals</h1>
-                        <p>Save more, party more.</p>
+                        <p>Save more, party more</p>
                     </div>
                 </div>
             </div>

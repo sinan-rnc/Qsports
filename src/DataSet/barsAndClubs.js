@@ -5,7 +5,7 @@ import image4 from "../Assets/Banner/hero-banner.jpg"
 import image5 from "../Assets/Banner/pool-5319619_1280.jpg"
 import image6 from "../Assets/Banner/paris-919396_1280.jpg"
 
-export const barsAndClubs = [
+export const barsAndClubsNames = [
     "The Velvet Lounge",
     "Blue Lagoon Bar",
     "Neon Nights Club",
@@ -38,10 +38,11 @@ export const barsAndClubs = [
     "The Mirage Lounge"
   ];
 
-  export const barsAndClubs1 = [
+  export const barsAndClubs = [
     {
         id: 1,
         name: "The Velvet Lounge",
+        category: "Bar",
         image: image1,
         city: "Al Barsha",
         rating: 5,
@@ -51,6 +52,7 @@ export const barsAndClubs = [
     {
         id: 2,
         name: "Blue Lagoon Bar",
+        category: "Club",
         image: image2,
         city: "Dubai Marina",
         rating: 4,
@@ -60,6 +62,7 @@ export const barsAndClubs = [
     {
         id: 3,
         name: "Neon Nights Club",
+        category: "Bar",
         image: image3,
         city: "Business Bay",
         rating: 5,
@@ -69,6 +72,7 @@ export const barsAndClubs = [
     {
         id: 4,
         name: "Aurora Rooftop",
+        category: "Club",
         image: image4,
         city: "Jumeirah",
         rating: 5,
@@ -78,6 +82,7 @@ export const barsAndClubs = [
     {
         id: 5,
         name: "Pulse Ultra Lounge",
+        category: "Bar",
         image: image5,
         city: "Downtown Dubai",
         rating: 4,
@@ -87,15 +92,17 @@ export const barsAndClubs = [
     {
         id: 6,
         name: "Moonlight Tavern",
+        category: "Club",
         image: image6,
         city: "Oud Metha",
         rating: 5,
         reviews: 15,
-        amount: 110,
+        amount: 80,
     },
     {
         id: 7,
         name: "The Scarlet Room",
+        category: "Bar",
         image: image1,
         city: "Al Wasl",
         rating: 4,
@@ -105,6 +112,7 @@ export const barsAndClubs = [
     {
         id: 8,
         name: "Echo Bar & Grill",
+        category: "Club",
         image: image2,
         city: "Dubai Silicon Oasis",
         rating: 5,
@@ -114,6 +122,7 @@ export const barsAndClubs = [
     {
         id: 9,
         name: "Starlight Clubhouse",
+        category: "Bar",
         image: image3,
         city: "Discovery Gardens",
         rating: 4,
@@ -123,6 +132,7 @@ export const barsAndClubs = [
     {
         id: 10,
         name: "Infinity Lounge",
+        category: "Club",
         image: image4,
         city: "Mirdif",
         rating: 5,
@@ -132,6 +142,7 @@ export const barsAndClubs = [
     {
         id: 11,
         name: "The Golden Hour Bar",
+        category: "Bar",
         image: image5,
         city: "Al Karama",
         rating: 4,
@@ -141,6 +152,7 @@ export const barsAndClubs = [
     {
         id: 12,
         name: "Skyline Club",
+        category: "Club",
         image: image6,
         city: "Dubai Festival City",
         rating: 5,
@@ -150,6 +162,7 @@ export const barsAndClubs = [
     {
         id: 13,
         name: "Crimson Vibes",
+        category: "Bar",
         image: image1,
         city: "Jebel Ali",
         rating: 4,
@@ -159,6 +172,7 @@ export const barsAndClubs = [
     {
         id: 14,
         name: "The Chill Spot",
+        category: "Club",
         image: image2,
         city: "Al Quoz",
         rating: 5,
@@ -168,15 +182,17 @@ export const barsAndClubs = [
     {
         id: 15,
         name: "After Dark Lounge",
+        category: "Bar",
         image: image3,
         city: "The Greens",
         rating: 5,
         reviews: 16,
-        amount: 110,
+        amount: 170,
     },
     {
         id: 16,
         name: "The Electric Beat",
+        category: "Club",
         image: image4,
         city: "Dubai Media City",
         rating: 4,
@@ -186,6 +202,7 @@ export const barsAndClubs = [
     {
         id: 17,
         name: "Vibe Vault",
+        category: "Bar",
         image: image5,
         city: "Bur Dubai",
         rating: 5,
@@ -195,6 +212,7 @@ export const barsAndClubs = [
     {
         id: 18,
         name: "Mystic Nights",
+        category: "Club",
         image: image6,
         city: "Palm Jumeirah",
         rating: 5,
@@ -204,6 +222,7 @@ export const barsAndClubs = [
     {
         id: 19,
         name: "Oasis Bar & Club",
+        category: "Bar",
         image: image1,
         city: "Al Twar",
         rating: 4,
@@ -213,15 +232,17 @@ export const barsAndClubs = [
     {
         id: 20,
         name: "Twilight Terrace",
+        category: "Club",
         image: image2,
         city: "Hor Al Anz",
         rating: 5,
         reviews: 34,
-        amount: 115,
+        amount: 180,
     },
     {
         id: 21,
         name: "The Liquid Room",
+        category: "Bar",
         image: image3,
         city: "Al Warqaa",
         rating: 5,
@@ -231,6 +252,7 @@ export const barsAndClubs = [
     {
         id: 22,
         name: "Serenity Club",
+        category: "Club",
         image: image4,
         city: "Al Sufouh",
         rating: 4,
@@ -240,6 +262,7 @@ export const barsAndClubs = [
     {
         id: 23,
         name: "The Groove Den",
+        category: "Bar",
         image: image5,
         city: "Dubai Healthcare City",
         rating: 5,
@@ -249,6 +272,7 @@ export const barsAndClubs = [
     {
         id: 24,
         name: "Fusion Lounge",
+        category: "Club",
         image: image6,
         city: "Academic City",
         rating: 4,
@@ -258,6 +282,7 @@ export const barsAndClubs = [
     {
         id: 25,
         name: "Horizon Club",
+        category: "Bar",
         image: image1,
         city: "Al Mizhar",
         rating: 5,
@@ -267,6 +292,7 @@ export const barsAndClubs = [
     {
         id: 26,
         name: "Enigma Bar",
+        category: "Club",
         image: image2,
         city: "Knowledge Village",
         rating: 4,
@@ -276,6 +302,7 @@ export const barsAndClubs = [
     {
         id: 27,
         name: "The Bamboo Grove",
+        category: "Bar",
         image: image3,
         city: "Sheikh Zayed",
         rating: 5,
@@ -285,6 +312,7 @@ export const barsAndClubs = [
     {
         id: 28,
         name: "Sapphire Nights",
+        category: "Club",
         image: image4,
         city: "Za'abeel",
         rating: 4,
@@ -294,6 +322,7 @@ export const barsAndClubs = [
     {
         id: 29,
         name: "The Hidden Cove",
+        category: "Bar",
         image: image5,
         city: "Umm Al Sheif",
         rating: 5,
@@ -303,6 +332,7 @@ export const barsAndClubs = [
     {
         id: 30,
         name: "The Mirage Lounge",
+        category: "Club",
         image: image6,
         city: "Dubai Sports City",
         rating: 5,
@@ -312,6 +342,7 @@ export const barsAndClubs = [
     {
         id: 31,
         name: "Crimson Cove Club",
+        category: "Bar",
         image: image1,
         city: "Downtown Dubai",
         rating: 5,
@@ -321,10 +352,11 @@ export const barsAndClubs = [
     {
         id: 32,
         name: "Golden Hour Bar",
+        category: "Club",
         image: image2,
         city: "Palm Jumeirah",
         rating: 5,
         reviews: 30,
-        amount: 140,
+        amount: 200,
     },
 ];

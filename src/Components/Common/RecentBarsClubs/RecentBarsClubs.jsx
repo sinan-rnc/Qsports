@@ -6,7 +6,7 @@ import 'swiper/css/pagination';
 
 import stick from "../../../Assets/Common/Billiard-Stick.png"
 
-import { barsAndClubs1 } from "../../../DataSet/barsAndClubs"
+import { barsAndClubs } from "../../../DataSet/barsAndClubs"
 
 import "./RecentBarsClubs.scss"
 import { MdOutlineZoomOutMap } from 'react-icons/md';
@@ -19,7 +19,9 @@ export default function RecentBarsClubs() {
                     <div className='header-top'>
                         <h2>Recent Bars and Clubs</h2>
                         <div className="arrow-div">
-                            <h4>Show All</h4>
+                            {/* <h4 className="active">Upcoming Events</h4>
+                            <h4>Ongoing Events</h4> */}
+                            <a href="/bars-and-clubs"><h4>Show All</h4></a>
                             <button className="arrow1 prev-arrow1"><span>❮</span></button>
                             <button className="arrow1 next-arrow1"><span>❯</span></button>
                         </div>
@@ -50,7 +52,7 @@ export default function RecentBarsClubs() {
                       }}
                     className="recentBarsClubs-grid"
                 >
-                    {barsAndClubs1.map((ele, index) => (
+                    {barsAndClubs.map((ele, index) => (
                         <SwiperSlide key={index}>
                             <div className="recentBarsClubs-card">
                                 <div className="recentBarsClubs-image">

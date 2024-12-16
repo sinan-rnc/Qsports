@@ -22,8 +22,19 @@
             gap: 20px;
 
             svg {
-                font-size: 50px;
+                font-size: 40px;
                 color: #fe6b00;
+            }
+
+            h1 {
+                font-size: 18px;
+            }
+
+            p {
+                margin-top: 5px;
+                font-size: 15px;
+                font-weight: 450;
+                color: gray;
             }
         }
     }
