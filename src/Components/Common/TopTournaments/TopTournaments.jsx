@@ -11,7 +11,7 @@ import "./TopTournaments.scss"
 export default function TopTournaments() {
     return (
         <section className="tournaments">
-            <div className="tournament-section container">
+            <div className="tournament-section container-section">
                 <div className="tournament-header">
                     <button className="arrow prev-arrow"><span>❮</span></button>
                     <h2>Top Tournaments</h2>
@@ -45,7 +45,7 @@ export default function TopTournaments() {
                       }}
                     className="tournament-grid"
                 >
-                    {tournaments.map((ele, index) => (
+                    {tournaments.slice(0, 6).map((ele, index) => (
                         <SwiperSlide key={index}>
                             <div className="tournament-card">
                                 <div className="tournament-image">
@@ -61,10 +61,8 @@ export default function TopTournaments() {
                                         <div className="right">
                                             <p className="price">AED {ele.fees}</p>
                                             <p className="dateNTime">{ele.date} at {ele.time}</p>
+                                            <button>Register Now</button>
                                         </div>
-                                    </div>
-                                    <div className="bottom">
-                                        <button>Register Now</button>
                                     </div>
                                 </div>
                             </div>

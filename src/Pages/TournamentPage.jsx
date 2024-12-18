@@ -6,7 +6,7 @@ export default function TournamentPage() {
     return (
         <Fragment>
             <Tournaments/>
-            <TournamentEvents/>
+            {/* <TournamentEvents/> */}
         </Fragment>
     )
 }

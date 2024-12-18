@@ -6,6 +6,9 @@ import About from "../Components/Home/About/About";
 import Stats from "../Components/Common/Stats/Stats";
 import Helmet from "../Components/Common/Helmet/Helmet";
 import { Fragment } from "react";
+import TournamentEvents from "../Components/Common/TournamentEvents/TournamentEvents";
+import TournamentEvents1 from "../Components/Common/TournamentEvents1/TournamentEvents1";
+import Highlights from "../Components/Common/Highlights/Highlights";
 
 export default function HomePage() {
     return (
@@ -14,9 +17,12 @@ export default function HomePage() {
                 <HomeHero/>
                 <Stats/>
                 <About/>
-                <BarsClubs/>
-                <TopTournaments/>
+                <TournamentEvents1/>
+                {/* <TopTournaments/> */}
                 <RecentBarsClubs/>
+                <TournamentEvents/>
+                <Highlights/>
+                {/* <BarsClubs/> */}
             </Helmet>
         </Fragment>
     )

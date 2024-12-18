@@ -13,30 +13,34 @@ import { tournaments } from '../../../DataSet/tournaments';
 export default function TournamentEvents() {
     return (
         <section className="tournamentevents">
-        <div className="tournamentevents-section container">
+        <div className="tournamentevents-section container-section">
             <div className="tournamentevents-header">
                 <div className='header-top'>
-                    <h2>Tournament Events</h2>
+                    <div className="heading">
+                        <h1 className='main-heading'>Tournaments</h1>
+                        <hr className="hr-1"/><hr className="hr-2"/>
+                        <h3 className="second-heading">Events</h3>
+                    </div>
                     <div className="arrow-div">
                         <h4 className="active">Upcoming Events</h4>
                         <h4>Ongoing Events</h4>
-                        <h4>Show All</h4>
-                        <button className="arrow1 prev-arrow1"><span>❮</span></button>
-                        <button className="arrow1 next-arrow1"><span>❯</span></button>
+                        <a href="/tournaments"><h4>Show All</h4></a>
+                        <button className="arrow1 prev-arrow2"><span>❮</span></button>
+                        <button className="arrow1 next-arrow2"><span>❯</span></button>
                     </div>
                 </div>
-                <img src={stick} alt="" className="stick"/>
+                {/* <img src={stick} alt="" className="stick"/> */}
                 {/* <hr/> */}
             </div>
             <Swiper
                 modules={[ Navigation, Pagination]}
                 navigation={{
-                    nextEl: '.next-arrow1',
-                    prevEl: '.prev-arrow1',
+                    nextEl: '.next-arrow2',
+                    prevEl: '.prev-arrow2',
                 }}
                 pagination={false}
                 spaceBetween={20}
-                slidesPerView={3}
+                slidesPerView={4}
                 loop={true}
                 speed={1000}
                 effect={'coverflow'}
@@ -55,7 +59,7 @@ export default function TournamentEvents() {
                     <SwiperSlide key={index}>
                         <div className="tournamentevents-card">
                             <div className="tournamentevents-image">
-                                <MdOutlineZoomOutMap />
+                                {/* <MdOutlineZoomOutMap /> */}
                                 <img src={ele.image} alt="" />
                             </div>
                             <div className="tournamentevents-details">
@@ -68,10 +72,8 @@ export default function TournamentEvents() {
                                     <div className="right">
                                         <p className="price">AED {ele.fees}</p>
                                         <p className="dateNTime">{ele.date} at {ele.time}</p>
+                                        <button>Register Now</button>
                                     </div>
-                                </div>
-                                <div className="bottom">
-                                    <button>Register Now</button>
                                 </div>
                             </div>
                         </div>

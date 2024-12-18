@@ -3,7 +3,7 @@
     align-items: center;
     text-align: center;
     padding-top: 100px;
-    padding-bottom: 100px;
+    // padding-bottom: 100px;
     // background: #222222;
 
     .tournamentevents-section {
@@ -49,7 +49,7 @@
                         border-radius: 5px;
                     }
 
-                    .prev-arrow1 {
+                    .prev-arrow2 {
                         background-color: #fe6b00;
                         color: white;
                         border: none;
@@ -62,7 +62,7 @@
                         border-radius: 5px;
                     }
 
-                    .next-arrow1 {
+                    .next-arrow2 {
                         background-color: #fe6b00;
                         color: white;
                         border: none;
@@ -81,11 +81,11 @@
                 }
             }
 
-            hr {
-                background: black;
-                height: 2px;
-                border: none;
-            }
+            // hr {
+            //     background: black;
+            //     height: 2px;
+            //     border: none;
+            // }
 
             .stick {
                 margin-top: -80px;
@@ -94,15 +94,15 @@
                 transform: translateX(-50%);
                 height: 150px;
                 width: 100%;
-                padding-left: 85px;
-                padding-right: 85px;
+                padding-left: 30px;
+                padding-right: 30px;
                 pointer-events: none;
             }
 
         }
 
         .tournamentevents-grid {
-            margin-top: 50px;
+            // margin-top: 50px;
             align-items: center;
             justify-content: center;
             justify-items: center;
@@ -112,7 +112,7 @@
             // grid-template-columns: repeat(3, 1fr);
             // gap: 20px;
             height: auto;
-            padding: 10px;
+            padding: 2px;
             // padding-bottom: 20px;
 
             .swiper-pagination {
@@ -133,7 +133,7 @@
                 // border: 1px solid #ddd;
                 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
                 // border-radius: 5px;
-                padding: 15px;
+                // padding: 15px;
                 text-align: center;
                 position: relative;
                 width: auto;
@@ -200,14 +200,15 @@
                 
                 .tournamentevents-details {
                     display: block;
-                    // justify-content: space-between;
-                    // text-align: left;
+                    justify-content: space-between;
+                    text-align: left;
+                    padding: 15px;
     
                     .top {
                         display: flex;
                         justify-content: space-between;
-                        gap: 10px;
-                        padding: 0px 10px 0px ;
+                        // gap: 10px;
+                        // padding: 0px 10px 0px ;
     
                         .left {
                             text-align: left;
@@ -215,12 +216,12 @@
                             
                             h3 {
                                 position: absolute;
-                                top: -30px;
-                                left: -12px;
+                                top: -40px;
+                                left: -15px;
                                 width: 300px;
                                 background: white;
                                 color: #fe6b00;
-                                padding: 10px 15px 0px 12px;
+                                padding: 10px 15px 0px 15px;
                                 clip-path: polygon(0% 0%, calc(100% - 30px) 0%, 100% 100%, 0% 100%)
                             }
     
@@ -234,6 +235,7 @@
                             // display: block;
                             // justify-content: flex-end;
                             text-align: right;
+                            margin-top: -20px;
         
                             .price {
                                 margin-top: 10px;
@@ -245,40 +247,33 @@
                             .dateNTime {
                                 margin-top: 10px;
                             }
+
+                            button {
+                                // position: absolute;
+                                // bottom: 0;
+                                // right: 0;
+                                display: block;
+                                justify-content: flex-end;
+                                width: 150px;
+                                padding: 10px 5px 10px;
+                                background: #fe6b00;
+                                color: white;
+                                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                                border: none;
+                                font-weight: 700;
+                                font-size: 15px;
+                                cursor: pointer;
+                                margin-top: 10px;
+                                border-radius: 5px;
+                            }
+        
+                            button:hover {
+                                background: #ddcc92;
+                                box-shadow: none;
+                                color: black;
+                            }
                         }
-    
-                    }
-    
-                    .bottom {
-                        margin-top: 20px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        text-align: center;
-    
-                        button {
-                            // position: absolute;
-                            // bottom: 0;
-                            // right: 0;
-                            display: block;
-                            justify-content: flex-end;
-                            width: 150px;
-                            padding: 10px 5px 10px;
-                            background: #fe6b00;
-                            color: white;
-                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                            border: none;
-                            font-weight: 700;
-                            font-size: 15px;
-                            cursor: pointer;
-                        }
-    
-                        button:hover {
-                            background: #ddcc92;
-                            box-shadow: none;
-                            color: black;
-                        }
-                    }                
+                    }               
                 }
             }
         }

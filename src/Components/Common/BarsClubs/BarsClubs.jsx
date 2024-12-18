@@ -103,221 +103,223 @@ export default function BarsClubs() {
     // console.log(pageNumbers)
       
     return (
-        <section className="barsclubs container">
+        <section className="barsclubs container-section">
             <div className="heading">
-                <h1>Clubs and Bars</h1>
-                    <img src={stick} alt="" className="stick"/>  
-                </div>
+                <h1 className='main-heading'>Bars And Clubs</h1>
+                <hr className="hr-1"/><hr className="hr-2"/>
+                {/* <h3 className="second-heading"></h3> */}
+            </div>
+            {/* <img src={stick} alt="" className="stick"/>   */}
                 
-                <div className="section">
-                    {/* <!-- Filters Sidebar --> */}
-                    <div className="filters">
-                        <h3>Filters</h3>
-                        {/* <hr/> */}
-                        <div className="filter-category">
-                            <div className="filter-header" onClick={() => setCategoryFilterOpen(!categoryFilterOpen)}>
-                                <span>Categories</span>
-                                {!categoryFilterOpen ? <FaCaretDown /> : <FaCaretUp/>}
-                            </div>
-                            <ul id="categories" className={`filter-content ${categoryFilterOpen ? "" : "close-filter"}`}>
-                                <li>
-                                    <input 
-                                        type="checkbox" 
-                                        value="Club" 
-                                        checked={categoryFilter === "Club"}
-                                        onChange={(e) => setCategoryFilter(e.target.value)}
-                                    />
-                                    <span>Clubs</span>
-                                </li>
-                                <li>
-                                    <input 
-                                        type="checkbox" 
-                                        value="Bar" 
-                                        checked={categoryFilter === "Bar"}
-                                        onChange={(e) => setCategoryFilter(e.target.value)}
-                                    />
-                                    <span>Bars</span></li>
-                            </ul>
+            <div className="section">
+                {/* <!-- Filters Sidebar --> */}
+                <div className="filters">
+                    <h3>Filters</h3>
+                    {/* <hr/> */}
+                    <div className="filter-category">
+                        <div className="filter-header" onClick={() => setCategoryFilterOpen(!categoryFilterOpen)}>
+                            <span>Categories</span>
+                            {!categoryFilterOpen ? <FaCaretDown /> : <FaCaretUp/>}
                         </div>
-                        {/* <hr/> */}
-                        <div className="filter-category">
-                            <div className="filter-header" onClick={() => setTournamentFilterOpen(!tournamentFilterOpen)}>
-                                <span>Tournaments</span>
-                                {!tournamentFilterOpen ? <FaCaretDown /> : <FaCaretUp/>}
-                            </div>
-                            <ul id="vehicle" className={`filter-content ${tournamentFilterOpen ? "" : "close-filter"}`}>
-                                <li><input type="checkbox"></input><span>Single Elimination</span></li>
-                                <li><input type="checkbox"></input><span>Double Elimination</span></li>
-                                <li><input type="checkbox"></input><span>Round Robin</span></li>
-                                <li><input type="checkbox"></input><span>Ladder Tournament</span></li>
-                                <li><input type="checkbox"></input><span>Swiss System</span></li>
-                            </ul>
+                        <ul id="categories" className={`filter-content ${categoryFilterOpen ? "" : "close-filter"}`}>
+                            <li>
+                                <input 
+                                    type="checkbox" 
+                                    value="Club" 
+                                    checked={categoryFilter === "Club"}
+                                    onChange={(e) => setCategoryFilter(e.target.value)}
+                                />
+                                <span>Clubs</span>
+                            </li>
+                            <li>
+                                <input 
+                                    type="checkbox" 
+                                    value="Bar" 
+                                    checked={categoryFilter === "Bar"}
+                                    onChange={(e) => setCategoryFilter(e.target.value)}
+                                />
+                                <span>Bars</span></li>
+                        </ul>
+                    </div>
+                    {/* <hr/> */}
+                    <div className="filter-category">
+                        <div className="filter-header" onClick={() => setTournamentFilterOpen(!tournamentFilterOpen)}>
+                            <span>Tournaments</span>
+                            {!tournamentFilterOpen ? <FaCaretDown /> : <FaCaretUp/>}
                         </div>
-                        {/* <hr/> */}
-                        <div className="filter-category">
-                            <div className="filter-header" onClick={() => setPriceFilterOpen(!priceFilterOpen)}>
-                                <span>Price</span>
-                                {!priceFilterOpen ? <FaCaretDown /> : <FaCaretUp/>}
-                            </div>
-                            <ul id="price" className={`filter-content ${priceFilterOpen ? "" : "close-filter"}`}>
-                                <li><input 
-                                    type="checkbox" 
-                                    value="high" 
-                                    checked={priceFilter === "high"}
-                                    onChange={(e) => setPriceFilter(e.target.value)}
-                                /><span>High</span></li>
-                                <li><input 
-                                    type="checkbox" 
-                                    value="medium" 
-                                    checked={priceFilter === "medium"}
-                                    onChange={(e) => setPriceFilter(e.target.value)} 
-                                /><span>Medium</span></li>
-                                <li><input 
-                                    type="checkbox" 
-                                    value="low" 
-                                    checked={priceFilter === "low"}
-                                    onChange={(e) => setPriceFilter(e.target.value)} 
-                                /><span>Low</span></li>
-                            </ul>
+                        <ul id="vehicle" className={`filter-content ${tournamentFilterOpen ? "" : "close-filter"}`}>
+                            <li><input type="checkbox"></input><span>Single Elimination</span></li>
+                            <li><input type="checkbox"></input><span>Double Elimination</span></li>
+                            <li><input type="checkbox"></input><span>Round Robin</span></li>
+                            <li><input type="checkbox"></input><span>Ladder Tournament</span></li>
+                            <li><input type="checkbox"></input><span>Swiss System</span></li>
+                        </ul>
+                    </div>
+                    {/* <hr/> */}
+                    <div className="filter-category">
+                        <div className="filter-header" onClick={() => setPriceFilterOpen(!priceFilterOpen)}>
+                            <span>Price</span>
+                            {!priceFilterOpen ? <FaCaretDown /> : <FaCaretUp/>}
                         </div>
-                        {/* <hr/> */}
-                        {/* <!-- Add more filter sections as needed --> */}
-                        <button 
-                            className="reset-btn"
-                            onClick={handleReset}>Reset</button>
+                        <ul id="price" className={`filter-content ${priceFilterOpen ? "" : "close-filter"}`}>
+                            <li><input 
+                                type="checkbox" 
+                                value="high" 
+                                checked={priceFilter === "high"}
+                                onChange={(e) => setPriceFilter(e.target.value)}
+                            /><span>High</span></li>
+                            <li><input 
+                                type="checkbox" 
+                                value="medium" 
+                                checked={priceFilter === "medium"}
+                                onChange={(e) => setPriceFilter(e.target.value)} 
+                            /><span>Medium</span></li>
+                            <li><input 
+                                type="checkbox" 
+                                value="low" 
+                                checked={priceFilter === "low"}
+                                onChange={(e) => setPriceFilter(e.target.value)} 
+                            /><span>Low</span></li>
+                        </ul>
+                    </div>
+                    {/* <hr/> */}
+                    {/* <!-- Add more filter sections as needed --> */}
+                    <button 
+                        className="reset-btn"
+                        onClick={handleReset}>Reset</button>
+                </div>
+
+                {/* <!-- Main Content --> */}
+                <div className="content">
+                    {/* <!-- Header --> */}
+                    <div className="header-controls">
+                        <div className="product_views">
+                            <CiGrid41 className={`style1 ${gridDisplay === "style1" ? "active" : ""}`} onClick={() => setGridDisplay("style1")}/>
+                            <CiGrid2H className={`style2 ${gridDisplay === "style2" ? "active" : ""}`} onClick={() => setGridDisplay("style2")}/>
+                            <CiGrid2V className={`style2 ${gridDisplay === "style3" ? "active" : ""}`} onClick={() => setGridDisplay("style3")}/>
+                        </div>
+                        
+                        {/* <button className="view-grid active">Grid</button>
+                        <button className="view-list">List</button> */}
+                        <div className="product_filters">
+                            <div className="sort-show">
+                                <label for="sort-select">Sort:</label>
+                                <div className="sort-select-div">
+                                    <select id="sort-select" value={sortBy} onChange={(e) => {setSortBy(e.target.value)}}>
+                                        <option value="">Default</option>
+                                        <option value="Name">Name</option>
+                                        <option value="City">City</option>
+                                        <option value="Price">Price</option>
+                                    </select>
+                                    <RiExpandUpDownFill/>
+                                </div>
+                            </div>
+                            <div className="sort-show">
+                                <label for="show-select">Show:</label>
+                                <div className="sort-select-div">
+                                    <select id="show-select" value={showNo} onChange={(e) => {handleShow(e)}}>
+                                        <option value={barsAndClubs.length}>All</option>
+                                        <option value="6">6</option>
+                                        <option value="12">12</option>
+                                        <option value="24">24</option>
+                                    </select>
+                                    <RiExpandUpDownFill/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* <!-- Main Content --> */}
-                    <div className="content">
-                        {/* <!-- Header --> */}
-                        <div className="header-controls">
-                            <div className="product_views">
-                                <CiGrid41 className={`style1 ${gridDisplay === "style1" ? "active" : ""}`} onClick={() => setGridDisplay("style1")}/>
-                                <CiGrid2H className={`style2 ${gridDisplay === "style2" ? "active" : ""}`} onClick={() => setGridDisplay("style2")}/>
-                                <CiGrid2V className={`style2 ${gridDisplay === "style3" ? "active" : ""}`} onClick={() => setGridDisplay("style3")}/>
-                            </div>
-                            
-                            {/* <button className="view-grid active">Grid</button>
-                            <button className="view-list">List</button> */}
-                            <div className="product_filters">
-                                <div className="sort-show">
-                                    <label for="sort-select">Sort:</label>
-                                    <div className="sort-select-div">
-                                        <select id="sort-select" value={sortBy} onChange={(e) => {setSortBy(e.target.value)}}>
-                                            <option value="">Default</option>
-                                            <option value="Name">Name</option>
-                                            <option value="City">City</option>
-                                            <option value="Price">Price</option>
-                                        </select>
-                                        <RiExpandUpDownFill/>
-                                    </div>
-                                </div>
-                                <div className="sort-show">
-                                    <label for="show-select">Show:</label>
-                                    <div className="sort-select-div">
-                                        <select id="show-select" value={showNo} onChange={(e) => {handleShow(e)}}>
-                                            <option value={barsAndClubs.length}>All</option>
-                                            <option value="6">6</option>
-                                            <option value="12">12</option>
-                                            <option value="24">24</option>
-                                        </select>
-                                        <RiExpandUpDownFill/>
-                                    </div>
-                                </div>
-                            </div>
+                    {/* <!-- Product Grid --> */}
+                    {getProcessedBarsAndClubs().length === 0 ? (
+                        <div className="product-grid">
+                            <div>No Record Found Go to <button className="no-record" onClick={setCurrentPage(currentPage-1)}>Page 1</button> </div>
                         </div>
-
-                        {/* <!-- Product Grid --> */}
-                        {getProcessedBarsAndClubs().length === 0 ? (
-                            <div className="product-grid">
-                                <div>No Record Found Go to <button className="no-record" onClick={setCurrentPage(currentPage-1)}>Page 1</button> </div>
-                            </div>
-                        ) : (
-                            <div className="product-grid">
-                            {getProcessedBarsAndClubs().map((ele) => {
-                                return (
-                                    <div className="product-card" key={ele.id}>
-                                        {/* <div className="product-badges">
-                                            <span className="badge sale">Sale</span>
-                                            <span className="badge new">New</span>
-                                            <span className="badge hot">Hot</span>
-                                        </div> */}
-                                        <div className="product-image">
-                                            <MdOutlineZoomOutMap />
-                                            <img src={ele.image} alt=""/>
+                    ) : (
+                        <div className="product-grid">
+                        {getProcessedBarsAndClubs().map((ele) => {
+                            return (
+                                <div className="product-card" key={ele.id}>
+                                    {/* <div className="product-badges">
+                                        <span className="badge sale">Sale</span>
+                                        <span className="badge new">New</span>
+                                        <span className="badge hot">Hot</span>
+                                    </div> */}
+                                    <div className="product-image">
+                                        {/* <MdOutlineZoomOutMap /> */}
+                                        <img src={ele.image} alt=""/>
+                                    </div>
+                                    <div className="product-details">
+                                        <div className="left">
+                                            <h3>{ele.name}</h3>
+                                            <p>{ele.city}</p>
+                                            <div classNameName="rating">
+                                                <span classNameName="star">&#9733;</span>
+                                                <span classNameName="star">&#9733;</span>
+                                                <span classNameName="star">&#9733;</span>
+                                                <span classNameName="star">&#9733;</span>
+                                                <span classNameName="star">&#9733;</span>
+                                            </div>
                                         </div>
-                                        <div className="product-details">
-                                            <div className="left">
-                                                <h3>{ele.name}</h3>
-                                                <p>{ele.city}</p>
-                                                <div classNameName="rating">
-                                                    <span classNameName="star">&#9733;</span>
-                                                    <span classNameName="star">&#9733;</span>
-                                                    <span classNameName="star">&#9733;</span>
-                                                    <span classNameName="star">&#9733;</span>
-                                                    <span classNameName="star">&#9733;</span>
-                                                </div>
-                                            </div>
-                                            <div className="right">
-                                                <p className="price">AED {ele.amount}</p>
-                                                <button>Book Now</button>
-                                                {/* <ImEnlarge /> */}
-                                            </div>
+                                        <div className="right">
+                                            <p className="price">AED {ele.amount}</p>
+                                            <button>Book Now</button>
+                                            {/* <ImEnlarge /> */}
                                         </div>
                                     </div>
+                                </div>
+                            )
+                        })}
+                        </div>
+                    )}
+
+                    {/* <!-- Footer --> */}
+                    {/* <div className="footer-controls">
+                        <div className="footer-pagination">
+                            <span className="prev">❮</span>
+                            {pageNumbers.map((ele) => {
+                                return(
+                                    <span key={ele} className={ ""}>{ele}</span>
                                 )
                             })}
-                            </div>
-                        )}
-
-                        {/* <!-- Footer --> */}
-                        {/* <div className="footer-controls">
-                            <div className="footer-pagination">
-                                <span className="prev">❮</span>
-                                {pageNumbers.map((ele) => {
-                                    return(
-                                        <span key={ele} className={ ""}>{ele}</span>
-                                    )
-                                })}
-                                <span className="next">❯</span>
-                            </div>
-                            <div className="footer-details">
-                                Showing 1-{showNo}  of {barsAndClubs.length} Clubs and Bars
-                            </div>
-                        </div> */}
-                        <div className="footer-controls">
-                            <div className="footer-pagination">
+                            <span className="next">❯</span>
+                        </div>
+                        <div className="footer-details">
+                            Showing 1-{showNo}  of {barsAndClubs.length} Clubs and Bars
+                        </div>
+                    </div> */}
+                    <div className="footer-controls">
+                        <div className="footer-pagination">
+                            <span
+                                disabled={currentPage === 1}
+                                className={`prev ${currentPage === 1 ? "disabled" : ""}`}
+                                onClick={handlePrev}
+                            >
+                                ❮
+                            </span>
+                            {pageNumbers.map((page) => (
                                 <span
-                                    disabled={currentPage === 1}
-                                    className={`prev ${currentPage === 1 ? "disabled" : ""}`}
-                                    onClick={handlePrev}
+                                    key={page}
+                                    className={`page-number ${page === currentPage ? "active" : ""}`}
+                                    onClick={() => handlePageClick(page)}
                                 >
-                                    ❮
+                                    {page}
                                 </span>
-                                {pageNumbers.map((page) => (
-                                    <span
-                                        key={page}
-                                        className={`page-number ${page === currentPage ? "active" : ""}`}
-                                        onClick={() => handlePageClick(page)}
-                                    >
-                                        {page}
-                                    </span>
-                                ))}
-                                <span
-                                    disabled={currentPage === totalPages}
-                                    className={`next ${currentPage === totalPages ? "disabled" : ""}`}
-                                    onClick={handleNext}
-                                >
-                                    ❯
-                                </span>
-                            </div>
-                            <div className="footer-details">
-                                Showing {(currentPage - 1) * showNo + 1}-
-                                {Math.min(currentPage * showNo, totalFilteredItems)} of {totalFilteredItems} Clubs and Bars
-                            </div>
+                            ))}
+                            <span
+                                disabled={currentPage === totalPages}
+                                className={`next ${currentPage === totalPages ? "disabled" : ""}`}
+                                onClick={handleNext}
+                            >
+                                ❯
+                            </span>
+                        </div>
+                        <div className="footer-details">
+                            Showing {(currentPage - 1) * showNo + 1}-
+                            {Math.min(currentPage * showNo, totalFilteredItems)} of {totalFilteredItems} Clubs and Bars
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     )
 }

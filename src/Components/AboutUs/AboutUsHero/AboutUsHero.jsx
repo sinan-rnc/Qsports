@@ -10,7 +10,11 @@ export default function AboutUsHero() {
                 <img src={herobanner} alt="" className="hero-banner"/>
                 <div className="hero-content container">
                     <div className="hero-details">
-                        <h1>About Us</h1>
+                    <div className="heading">
+                        <h1 className='main-heading'>About Us</h1>
+                        <hr className="hr-1"/><hr className="hr-2"/>
+                        <h3 className="second-heading">QSports</h3>
+                    </div>
                         <p>At Qsports, we are passionate about connecting enthusiasts and professionals in the dynamic world of clubs and bars. 
                         Our platform is designed to bring together a community of players, fans, and club owners through comprehensive listings, 
                         seamless registration systems, and engaging tournaments hosted at top-tier clubs. <br/><br/>

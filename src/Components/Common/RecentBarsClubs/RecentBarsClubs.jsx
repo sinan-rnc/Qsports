@@ -13,11 +13,15 @@ import { MdOutlineZoomOutMap } from 'react-icons/md';
 
 export default function RecentBarsClubs() {
     return (
-        <section className="recentBarsClubs">
-            <div className="recentBarsClubs-section container">
+        <section className="recentBarsClubs" id="recentBarsClubs">
+            <div className="recentBarsClubs-section container-section">
                 <div className="recentBarsClubs-header">
                     <div className='header-top'>
-                        <h2>Recent Bars and Clubs</h2>
+                        <div className="heading">
+                            <h1 className='main-heading'>Recent Bars and Clubs</h1>
+                            <hr className="hr-1"/><hr className="hr-2"/>
+                            <h3 className="second-heading">Who are we</h3>
+                        </div>
                         <div className="arrow-div">
                             {/* <h4 className="active">Upcoming Events</h4>
                             <h4>Ongoing Events</h4> */}
@@ -26,7 +30,7 @@ export default function RecentBarsClubs() {
                             <button className="arrow1 next-arrow1"><span>❯</span></button>
                         </div>
                     </div>
-                    <img src={stick} alt="" className="stick"/>
+                    {/* <img src={stick} alt="" className="stick"/> */}
                     {/* <hr/> */}
                 </div>
                 <Swiper
@@ -37,7 +41,7 @@ export default function RecentBarsClubs() {
                     }}
                     pagination={false}
                     spaceBetween={20}
-                    slidesPerView={3}
+                    slidesPerView={4}
                     loop={true}
                     speed={1000}
                     effect={'coverflow'}
@@ -56,7 +60,7 @@ export default function RecentBarsClubs() {
                         <SwiperSlide key={index}>
                             <div className="recentBarsClubs-card">
                                 <div className="recentBarsClubs-image">
-                                    <MdOutlineZoomOutMap />
+                                    {/* <MdOutlineZoomOutMap /> */}
                                     <img src={ele.image} alt="" />
                                 </div>
                                 <div className="recentBarsClubs-details">

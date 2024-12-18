@@ -4,13 +4,16 @@ import './index.scss';
 import "remixicon/fonts/remixicon.css";
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthProvider } from './Context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <App />
+      </Router>
+    </AuthProvider>
   </React.StrictMode>
 );
 

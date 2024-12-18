@@ -2,32 +2,13 @@
     padding-top: 100px;
     padding-bottom: 50px;
     // height: 100vh;
-    display: block;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-    justify-items: center;
+    // display: block;
+    // align-items: center;
+    // align-content: center;
+    // justify-content: center;
+    // text-align: center;
+    // justify-items: center;
 
-    .heading {
-        display: block;
-        align-items: center;
-        // gap: 10px;
-        position: relative;
-
-        h1 {
-            font-size: 35px;
-        }
-
-        .stick {
-            position: absolute;
-            align-items: center;
-            top: -5px;
-            left: 0px;
-            width: 250px;
-            // transform: rotate(5deg);
-        }
-    }
 
     .section {
         margin-top: 50px;
@@ -117,6 +98,7 @@
                 font-weight: bold;
                 text-align: center;
                 transition: 0.3s;
+                border-radius: 5px;
               }
               
               .reset-btn:hover {
@@ -257,7 +239,7 @@
                     // border: 1px solid #ddd;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                     // border-radius: 5px;
-                    padding: 15px;
+                    // padding: 15px;
                     text-align: center;
                     position: relative;
                     width: 100%;
@@ -326,30 +308,31 @@
                         display: flex;
                         justify-content: space-between;
                         text-align: left;
-                        padding: 0px 10px 0px ;
+                        padding: 15px ;
 
                         .left {
                             position: relative;
 
                             h3 {
                                 position: absolute;
-                                top: -30px;
-                                left: -12px;
+                                top: -40px;
+                                left: -15px;
                                 width: 250px;
                                 background: white;
                                 color: #fe6b00;
-                                padding: 10px 15px 15px 12px;
+                                padding: 10px 15px 0px 15px;
                                 clip-path: polygon(0% 0%, calc(100% - 30px) 0%, 100% 100%, 0% 100%)
                             }
 
                             p {
-                                padding-top: 20px;
+                                padding-top: 10px;
                             }
                         }
 
                         .right {
                             position: relative;
                             display: block;
+                            margin-top: -10px;
 
                             .price {
                                 font-size: 18px;
@@ -372,6 +355,7 @@
                                 font-weight: 700;
                                 font-size: 15px;
                                 cursor: pointer;
+                                border-radius: 5px;
                             }
 
                             button:hover {
@@ -450,12 +434,12 @@
 
 @media (max-width : 2600px) {
     .barsclubs .section .content .product-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width : 2000px) {
     .barsclubs .section .content .product-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }

@@ -85,9 +85,10 @@ const reviews = [
 export default function Testimonials() {
     return (
         <section id="testimonials" className="testimonial-container">
-            <div className="title">
-            <h2>TESTIMONIALS</h2>
-            <p>WHAT PEOPLE SAY</p>
+            <div className="heading">
+                <h1 className='main-heading'>Testimonials</h1>
+                <hr className="hr-1"/><hr className="hr-2"/>
+                <h3 className="second-heading">What people says</h3>
             </div>
     
             <div className="slider-container">
@@ -101,7 +102,7 @@ export default function Testimonials() {
                     perPage: 2,
                     gap: 40,
                     autoplay: true,
-                    speed: 1000,
+                    speed: 5000,
                     rewind: true,
                     rewindByDrag: true,
                     }}

@@ -1,7 +1,7 @@
 import "./HomeHero.scss"
 import { RiBilliardsFill, RiSearch2Fill } from "react-icons/ri";
 import { RiExpandUpDownFill } from "react-icons/ri";
-import herobanner from "../../../Assets/Banner/herobanner.jpg"
+import herobanner from "../../../Assets/Banner/herobanner1.jpg"
 import { dubaiCities } from "../../../DataSet/dubaiCities";
 import { barsAndClubsNames } from "../../../DataSet/barsAndClubs";
 import { barClubTournaments } from "../../../DataSet/barClubTournaments";
@@ -28,8 +28,8 @@ export default function Hero() {
                 <div className="overlay"></div>
                 <img src={herobanner} alt=""/>
                 <div className="search_container container">
-                    <h1>Find your Clubs and Bars for the Party</h1>
-                    <p>Discover the hottest venues, events, and unforgettable experiences!</p>
+                    {/* <h1>Find your Clubs and Bars for the Party</h1>
+                    <p>Discover the hottest venues, events, and unforgettable experiences!</p> */}
                     <div className="search_bars">
                         <div className="bars">
                             {/* Select Location */}
