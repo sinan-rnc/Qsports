@@ -7,13 +7,13 @@ import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 import stick from "../../../Assets/Common/Billiard-Stick.png"
 import { MdOutlineZoomOutMap } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function BarsClubs() {
+export default function Tournaments({searchOption}) {
 
     const [sortBy, setSortBy] = useState("")
     const [showNo, setShowNo] = useState(6)
-    const [categoryFilter, setCategoryFilter] = useState("")
+    const [categoryFilter, setCategoryFilter] = useState(searchOption === "NearBy" || searchOption === "Tournament" ? "" : searchOption)
     const [categoryFilterOpen, setCategoryFilterOpen] = useState(true)
     const [priceFilter, setPriceFilter] = useState("")
     const [priceFilterOpen, setPriceFilterOpen] = useState(true)
@@ -24,6 +24,12 @@ export default function BarsClubs() {
     
     // console.log(sortBy, showNo)
 
+    useEffect(() => {
+        if (searchOption) {
+            setCategoryFilter(searchOption === "NearBy" || searchOption === "Tournament" ? "" : searchOption)
+        }
+    })
+
     // Filtered and sorted array based on selected filters and sort option
     const getProcessedBarsAndClubs = () => {
         // Apply category filter
@@ -31,10 +37,14 @@ export default function BarsClubs() {
             if (categoryFilter && !ele.category.includes(categoryFilter)) {
                 return false; // If category filter does not match, exclude this item
             }
+
+            if (tournamentFilter && !ele.type.includes(tournamentFilter)) {
+                return false;
+            }
             // Apply additional filters here (like priceFilter, tournamentFilter, etc.)
-            if (priceFilter === "high" && ele.fees < 150) return false;
-            if (priceFilter === "medium" && (ele.fees >= 150 || ele.fees < 100)) return false;
-            if (priceFilter === "low" && ele.fees >= 100) return false;
+            if (priceFilter === "high" && ele.fees < 250) return false;
+            if (priceFilter === "medium" && (ele.fees >= 250 || ele.fees < 200)) return false;
+            if (priceFilter === "low" && ele.fees >= 200) return false;
 
             return true; // Include the item if it passes the filters
         });
@@ -61,10 +71,15 @@ export default function BarsClubs() {
         if (categoryFilter && !ele.category.includes(categoryFilter)) {
             return false; // If category filter does not match, exclude this item
         }
+
+        if (tournamentFilter && !ele.type.includes(tournamentFilter)) {
+            return false;
+        }
+
         // Apply additional filters here (like priceFilter, tournamentFilter, etc.)
-        if (priceFilter === "high" && ele.fees < 150) return false;
-        if (priceFilter === "medium" && (ele.fees >= 150 || ele.fees < 100)) return false;
-        if (priceFilter === "low" && ele.fees >= 100) return false;
+        if (priceFilter === "high" && ele.fees < 250) return false;
+        if (priceFilter === "medium" && (ele.fees >= 250 || ele.fees < 200)) return false;
+        if (priceFilter === "low" && ele.fees >= 200) return false;
 
         return true; // Include the item if it passes the filters
     }).length;
@@ -98,6 +113,7 @@ export default function BarsClubs() {
     const handleReset = () => {
         setCategoryFilter("");
         setPriceFilter("");
+        setTournamentFilter("")
     }
 
     // console.log(pageNumbers)
@@ -146,11 +162,51 @@ export default function BarsClubs() {
                             {!tournamentFilterOpen ? <FaCaretDown /> : <FaCaretUp/>}
                         </div>
                         <ul id="vehicle" className={`filter-content ${tournamentFilterOpen ? "" : "close-filter"}`}>
-                            <li><input type="checkbox"></input><span>Single Elimination</span></li>
-                            <li><input type="checkbox"></input><span>Double Elimination</span></li>
-                            <li><input type="checkbox"></input><span>Round Robin</span></li>
-                            <li><input type="checkbox"></input><span>Ladder Tournament</span></li>
-                            <li><input type="checkbox"></input><span>Swiss System</span></li>
+                            <li>
+                                <input 
+                                    type="checkbox"
+                                    value="Single Elimination"
+                                    checked={tournamentFilter === "Single Elimination"}
+                                    onChange={(e) => setTournamentFilter(e.target.value)}
+                                />
+                                <span>Single Elimination</span>
+                            </li>
+                            <li>
+                                <input 
+                                    type="checkbox"
+                                    value="Double Elimination"
+                                    checked={tournamentFilter === "Double Elimination"}
+                                    onChange={(e) => setTournamentFilter(e.target.value)}
+                                />
+                                <span>Double Elimination</span>
+                            </li>
+                            <li>
+                                <input 
+                                    type="checkbox"
+                                    value="Round Robin"
+                                    checked={tournamentFilter === "Round Robin"}
+                                    onChange={(e) => setTournamentFilter(e.target.value)}
+                                />
+                                <span>Round Robin</span>
+                            </li>
+                            <li>
+                                <input 
+                                    type="checkbox"
+                                    value="Ladder Tournament"
+                                    checked={tournamentFilter === "Ladder Tournament"}
+                                    onChange={(e) => setTournamentFilter(e.target.value)}
+                                />
+                                <span>Ladder Tournament</span>
+                            </li>
+                            <li>
+                                <input 
+                                    type="checkbox"
+                                    value="Swiss System"
+                                    checked={tournamentFilter === "Swiss System"}
+                                    onChange={(e) => setTournamentFilter(e.target.value)}
+                                />
+                                <span>Swiss System</span>
+                            </li>
                         </ul>
                     </div>
                     {/* <hr/> */}
@@ -229,8 +285,8 @@ export default function BarsClubs() {
 
                     {/* <!-- Product Grid --> */}
                     {getProcessedBarsAndClubs().length === 0 ? (
-                        <div className="tournament-grid">
-                            <div>No Record Found Go to <button className="no-record" onClick={setCurrentPage(currentPage-1)}>Page 1</button> </div>
+                        <div className="tournament-grid-zero">
+                            <p>No Record Found,  <button className="no-record" onClick={handleReset}>Show All</button> </p>
                         </div>
                     ) : (
                         <div className="tournament-grid">

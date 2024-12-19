@@ -7,13 +7,13 @@ import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 import stick from "../../../Assets/Common/Billiard-Stick.png"
 import { MdOutlineZoomOutMap } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function BarsClubs() {
+export default function BarsClubs({searchOption}) {
 
     const [sortBy, setSortBy] = useState("")
     const [showNo, setShowNo] = useState(6)
-    const [categoryFilter, setCategoryFilter] = useState("")
+    const [categoryFilter, setCategoryFilter] = useState(searchOption === "NearBy" || searchOption === "Tournament" ? "" : searchOption)
     const [categoryFilterOpen, setCategoryFilterOpen] = useState(true)
     const [priceFilter, setPriceFilter] = useState("")
     const [priceFilterOpen, setPriceFilterOpen] = useState(true)
@@ -23,6 +23,12 @@ export default function BarsClubs() {
     const [gridDisplay, setGridDisplay] = useState("style1")
     
     // console.log(sortBy, showNo)
+
+    useEffect(() => {
+        if (searchOption) {
+            setCategoryFilter(searchOption === "NearBy" || searchOption === "Tournament" ? "" : searchOption)
+        }
+    })
 
     // Filtered and sorted array based on selected filters and sort option
     const getProcessedBarsAndClubs = () => {

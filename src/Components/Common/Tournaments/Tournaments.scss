@@ -210,6 +210,26 @@
             }
 
             /* Product Grid */
+
+            .tournament-grid-zero {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                button {
+                    appearance: none;
+                    border: none;
+                    background: none;
+                    font-size: 16px;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+
+                button:hover {
+                    color: #fe6b00;
+                }
+            }
+
             .tournament-grid {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);

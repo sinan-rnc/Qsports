@@ -5,21 +5,25 @@ import { LuUserRound } from "react-icons/lu";
 import { SiAmazongames } from "react-icons/si";
 import { FaSearch } from "react-icons/fa";
 import { GiPoolTriangle } from "react-icons/gi";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../../Context/AuthContext";
 
 import logo from "../../../Assets/Logo/logo.gif"
 import english from "../../../Assets/Common/english.png"
 import photo from "../../../Assets/Common/user.png"
+import { ImSearch } from "react-icons/im";
 
-export default function Header() {
+export default function Header({searchOption, handleSearchOption}) {
+
+    const navigate = useNavigate()
 
     const {user, handleLogin, handleLogout} = useAuth()
     const defaultUsername = "qsports@gmail.com"
     const defaultPassword = "Qsports@123"
     const location = useLocation()
-    const [openDashboard, setOpenDashboard] = useState(false)
+    const [openUserDashboard, setOpenUserDashboard] = useState(false)
+    const [openSearchDashboard, setOpenSearchDashboard] = useState(false)
     const [form, setForm] = useState({
         username : "",
         password : ""
@@ -44,16 +48,20 @@ export default function Header() {
     //     setForm({...form, [name]: value })
     // }
 
-    const handleOpenDashboard = () => {
-        setOpenDashboard(!openDashboard)
+    const handleOpenUserDashboard = () => {
+        setOpenUserDashboard(!openUserDashboard)
+    }
+
+    const handleOpenSerachDashboard = () => {
+        setOpenSearchDashboard(!openSearchDashboard)
     }
 
     // const handleCloseDashboard = () => {
-    //     setOpenDashboard(false)
+    //     setOpenUserDashboard(false)
     // }
-    // console.log(openDashboard)
+    // console.log(openUserDashboard)
 
-    const handleSubmit = (e) => {
+    const handleFormSubmit = (e) => {
         e.preventDefault()
 
         const formData = {
@@ -66,7 +74,7 @@ export default function Header() {
             if(formData.username === defaultUsername && formData.password === defaultPassword) {
                 alert("Successfully Logged In")
                 const user = formData
-                handleOpenDashboard()
+                handleOpenUserDashboard()
                 localStorage.setItem("User", user)
                 handleLogin(user)
                 setFormErrors("")
@@ -86,19 +94,31 @@ export default function Header() {
         }
     }
 
+    const handleSearchSubmit = () => {
+        if(searchOption === "Club" || searchOption === "Bar" || searchOption === "NearBy") {
+            navigate("/bars-and-clubs")
+        } else if(searchOption === "Tournament") {
+            navigate("/tournaments")
+        }
+        handleOpenSerachDashboard()
+    }
+
     return (
         <nav>
             <div className="navbar">
                 <div className="navbar_top">
                     <div className="left_ul">
-                        Call Us : 971 012345678
+                        <ul>
+                            <li>Call Us : 971 012345678</li>
+                            <li className="contact-us">Contact Us</li>
+                        </ul>
                     </div>
                     <div className="text_slogan">
                         <h1>Your Ultimate Destination for Indoor Games!</h1>
                     </div>
                     <div className="right_ul">
-                        Language 
-                        <img src={english} alt=""/>
+                        Language: <span>EN</span>
+                        {/* <img src={english} alt=""/> */}
                     </div>
                 </div>
                 <div className="navbar_middle">
@@ -125,14 +145,14 @@ export default function Header() {
                             <SiAmazongames size={"30px"}/>
                             My Tournaments
                         </li>
-                        <li className="login_div" onClick={() => {handleOpenDashboard()}}>
+                        <li className="login_div" onClick={() => {handleOpenUserDashboard()}}>
                             <LuUserRound/>
                             <div className="login">
-                                <span>Hello, Log In</span>
+                                {user ? <span>QSports</span> : <span>Hello, Log In</span>}
                                 My Profile
                             </div>
                         </li>
-                        {openDashboard && (
+                        {openUserDashboard && (
                             user ? 
                         (
                             <div className="user-dashboard">
@@ -148,24 +168,24 @@ export default function Header() {
                                     </ul>
                                 </div><hr className="hr-dashboard"/>
                                 <div className="button-div">
-                                    <button onClick={() => {
+                                    <button className="logout-btn" onClick={() => {
                                         handleLogout()
-                                        handleOpenDashboard()
+                                        handleOpenUserDashboard()
                                         }}>Logout</button>
                                 </div>
                             </div>
                         ) : (
                             <div className="login-dashboard">
                                 <h1>Log In To Your Account</h1>
-                                <form onSubmit={handleSubmit}>
+                                <form onSubmit={handleFormSubmit}>
                                     {serverErrors && <span className="from-errors">{serverErrors}</span>}
                                     <input type="email" placeholder="Email" value={form.username} onChange={(e) => {setForm({ ... form, username: e.target.value })}}/>
                                     {formErrors.username && <span className="from-errors">{formErrors.username}</span>}
                                     <input type="text" placeholder="Password" value={form.password} onChange={(e) => {setForm({ ... form, password: e.target.value })}}/>
                                     {formErrors.password && <span className="from-errors">{formErrors.password}</span>}
-                                    <button>Log In</button>
+                                    <button className="login-btn">Log In</button>
                                 </form>
-                                <p>Don't have an account? <a href="/register">Register</a></p>
+                                <p>Don't have an account? <a href="account/register">Register</a></p>
                             </div>
                         )
                         )}
@@ -175,20 +195,52 @@ export default function Header() {
                     <div className="serach_game">
                         {/* <i class="ri-search-fill"/> */}
                         <div className="icon-div">
-                        <div className="icon-left">
-                            <RiBilliardsFill size={25}/>
+                            <div className="icon-left" onClick={handleOpenSerachDashboard}>
+                                <RiBilliardsFill size={22}/>
                             </div>
                             <hr className="hr-left"/>
                         </div>
                         <input type="text" placeholder="Search For Clubs"/>
                         <div className="icon-div">
                             <hr className="hr-right"/>
-                            <div className="icon-right">
-                                <FaSearch size={20}/>
+                            <div className="icon-right" onClick={handleSearchSubmit}>
+                                <ImSearch size={18}/>
                             </div>
                         </div>
                     </div>
                 </div>
+                {openSearchDashboard && (
+                    <div className="search-dashboard">
+                        <p>Select an option from below</p>
+                        <div class="radio-container">
+                            <label>
+                                <input type="radio" name="Club" value="Club" checked={searchOption === "Club"} onChange={(e) => {handleSearchOption(e.target.value)}}/>
+                                <span class="custom-radio"></span>
+                                All Clubs
+                            </label>
+                            <label>
+                                <input type="radio" name="Bar" value="Bar" checked={searchOption === "Bar"} onChange={(e) => {handleSearchOption(e.target.value)}}/>
+                                <span class="custom-radio"></span>
+                                All Bars
+                            </label>
+                            <label>
+                                <input type="radio" name="NearBy"  value="NearBy" checked={searchOption === "NearBy"} onChange={(e) => {handleSearchOption(e.target.value)}}/>
+                                <span class="custom-radio"></span>
+                                Near By Clubs & Bars
+                            </label>
+                            <label>
+                                <input type="radio" name="Tournament" value="Tournament" checked={searchOption === "Tournament"} onChange={(e) => {handleSearchOption(e.target.value)}}/>
+                                <span class="custom-radio"></span>
+                                All Tournament
+                            </label>
+                        </div>
+                        <div className="search-button-div">
+                            <button className="search-btn" onClick={() => {handleSearchOption("")}}>Reset</button>
+                            <button className="search-btn" onClick={handleSearchSubmit}>Search</button>
+                        </div>
+                        
+                    </div>
+                )}
             </div>
         </nav>
     )

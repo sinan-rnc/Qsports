@@ -108,7 +108,7 @@ export const tournaments = [
         name: "Moonlight Masters",
         clubName: "Moonlight Tavern",
         type: "Swiss System",
-        category: "Club",
+        category: "Bar",
         date: "2025-03-15",
         time: "7 PM",
         fees: 200,
