@@ -26,6 +26,18 @@ export default function UserProfile() {
                     <label className="form-label" for="phoneNumber">Phone Number</label>
                     <input type="text" className="form-control" id="phoneNumber" placeholder="Enter your Phone Number"/>
                 </div>
+                <div className="form-group">
+                    <label className="form-label" for="phoneNumber">Date of Birth</label>
+                    <input type="date" className="form-control" id="phoneNumber" placeholder="Enter your Date of Birth"/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label" for="phoneNumber">About Me</label>
+                    <textarea type="text" className="form-control" id="phoneNumber" placeholder="Describe about Yourself"/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label" for="phoneNumber">Profile Picture</label>
+                    <input type="file" className="form-control" id="phoneNumber" placeholder="Enter your Profile Picture"/>
+                </div>
                 <button className="save-btn">Save</button>
             </form>
             </div>

@@ -5,11 +5,15 @@ import TournamentDashboard from "../TournamentDashboard/TournamentDashboard"
 import "./DashboardHome.scss"
 import ClubBarProfile from "../ClubBarProfile/ClubBarProfile"
 import { useState } from "react"
+import { useAuth } from "../../../Context/AuthContext"
+import { useNavigate } from "react-router-dom"
 
 export default function DashboardHome() {
+    const navigate = useNavigate()
+    const {handleLogout} = useAuth()
     const [selectedDashboard, setSelectedDashboard] = useState("dashboard")
     const dashboardMenu = [
-        { key: "dashboard", label: "Dashboard", component: <Dashboard /> },
+        { key: "dashboard", label: "Dashboard", component: <Dashboard setSelectedDashboard={setSelectedDashboard}/> },
         { key: "userProfile", label: "Edit Profile", component: <UserProfile /> },
         { key: "clubBarProfile", label: "Edit Profile", component: <ClubBarProfile /> },
         { key: "password", label: "Password", component: <Password /> },
@@ -37,7 +41,10 @@ export default function DashboardHome() {
                         <li className={`menubar-li ${selectedDashboard == "tournaments" ? "active" : ""}`} onClick={() => {setSelectedDashboard("tournaments")}}>Tournaments</li>
                     </ul>
                     <hr className="dashboard-hr"/>
-                    <button className="logout-btn">Log Out</button>
+                    <button className="logout-btn" onClick={() => {
+                        handleLogout()
+                        navigate("/")
+                    }}>Log Out</button>
                 </div>
 
                 <div className="dashboardhome-section">

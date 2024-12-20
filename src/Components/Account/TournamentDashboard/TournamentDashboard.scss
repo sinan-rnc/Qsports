@@ -74,6 +74,10 @@
             .dashborad-hr-2 {
                 margin-left: -28px;
             }
+
+            .dashborad-hr-1.rotate {
+                transform: rotate(90deg);
+            }
         }
 
         .dashborad-heading:hover .dashborad-main-heading {

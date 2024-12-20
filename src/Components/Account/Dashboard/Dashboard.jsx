@@ -3,7 +3,7 @@ import "./Dashboard.scss"
 
 import photo from "../../../Assets/Common/user.png"
 
-export default function Dashboard() {
+export default function Dashboard({ setSelectedDashboard }) {
     const user = useAuth()
 
     const tournamentStatus = [
@@ -25,7 +25,7 @@ export default function Dashboard() {
                     <img src={photo} alt="user"/>
                     <h1>Qsports</h1>
                     <span>qsports@gmail.com</span>
-                    <button className="edit-profile">Edit Profile</button>
+                    <button className="edit-profile" onClick={() => {setSelectedDashboard("userProfile")}}>Edit Profile</button>
                 </div>
             </div>
             <div className="dashboard-history">

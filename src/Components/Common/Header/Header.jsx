@@ -182,9 +182,9 @@ export default function Header({searchOption, handleSearchOption}) {
                                 <h1>Log In To Your Account</h1>
                                 <form onSubmit={handleFormSubmit}>
                                     {serverErrors && <span className="from-errors">{serverErrors}</span>}
-                                    <input type="email" placeholder="Email" value={form.username} onChange={(e) => {setForm({ ... form, username: e.target.value })}}/>
+                                    <input type="email" placeholder="Email" value={form.username} onChange={(e) => {setForm({ ...form, username: e.target.value })}}/>
                                     {formErrors.username && <span className="from-errors">{formErrors.username}</span>}
-                                    <input type="text" placeholder="Password" value={form.password} onChange={(e) => {setForm({ ... form, password: e.target.value })}}/>
+                                    <input type="text" placeholder="Password" value={form.password} onChange={(e) => {setForm({ ...form, password: e.target.value })}}/>
                                     {formErrors.password && <span className="from-errors">{formErrors.password}</span>}
                                     <button className="login-btn">Log In</button>
                                 </form>

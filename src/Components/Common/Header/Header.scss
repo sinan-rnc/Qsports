@@ -199,16 +199,22 @@
                         flex-direction: column;
                         margin-top: 30px;
                         gap: 10px;
+                        text-align: start;
 
                         input {
                             padding: 8px 30px 8px;
                             outline: none;
                             appearance: none;
-                            border: 1px solid black;
+                            border: 2px solid #eaeaea;
+                            background: #eaeaea;
+                            display: flex;
+                            text-align: left;
+                            justify-content: flex-start;
                         }
 
                         input:hover {
-                            background: #eaeaea;
+                            background: #fff;
+                            border: 2px solid #eaeaea;
                         }
 
                         .from-errors {

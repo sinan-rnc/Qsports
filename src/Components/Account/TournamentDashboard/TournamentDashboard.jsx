@@ -43,7 +43,7 @@ export default function TournamentDashboard() {
             <div className="add-tournament-section">
                 <div className="dashborad-heading" onClick={() => {setOpenAddTournamentSection(!openAddTournamentSection)}}>
                     <h1 className='dashborad-main-heading'>New Tournament</h1>
-                    <hr className="dashborad-hr-1"/><hr className="dashborad-hr-2"/>
+                    <hr className={`dashborad-hr-1 ${openAddTournamentSection && "rotate"}`}/><hr className="dashborad-hr-2"/>
                     {/* <h3 className="second-heading">Welcome User</h3> */}
                 </div>
                 {openAddTournamentSection && (
