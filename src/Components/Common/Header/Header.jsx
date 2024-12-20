@@ -135,6 +135,9 @@ export default function Header({searchOption, handleSearchOption}) {
                         <a href="/tournaments" className={location.pathname==="/tournaments" ? "active" : ""}><li>
                             Tournaments
                         </li></a>
+                        <a href="/account" className={location.pathname==="/account" ? "active" : ""}><li>
+                            Account
+                        </li></a>
                     </ul>
                     <div className="logo">
                         <a href="/"><h1><span>Q</span>SPORTS</h1></a>
@@ -185,7 +188,7 @@ export default function Header({searchOption, handleSearchOption}) {
                                     {formErrors.password && <span className="from-errors">{formErrors.password}</span>}
                                     <button className="login-btn">Log In</button>
                                 </form>
-                                <p>Don't have an account? <a href="account/register">Register</a></p>
+                                <p>Don't have an account? <a href="/register">Register</a></p>
                             </div>
                         )
                         )}

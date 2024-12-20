@@ -27,7 +27,7 @@ export default function Register() {
                         <button className="register-btn">Register</button>
                     </form>
                 </div>
-                <p className="login-link">Already Registered? <a href="/account/login">Login</a></p>
+                <p className="login-link">Already Registered? <a href="/login">Login</a></p>
             </div>
         </section>
     )

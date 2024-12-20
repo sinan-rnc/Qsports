@@ -44,25 +44,37 @@
             height: 1px;
         }
 
-        ul {
+        .menubar-ul {
             margin-top: 10px;
             // margin-left: 30px;
 
-            li {
+            .menubar-li {
                 display: flex;
+                flex-direction: column;
                 padding: 10px 30px 10px;
-                
                 border-left: 3px solid white;
+                cursor: pointer;
             }
 
-            li.active {
+            .menubar-li.active {
                 font-weight: 600;
                 border-left: 3px solid #fe6b00;
             }
 
-            li:hover {
+            .menubar-li:hover {
                 background: #eaeaea;
                 border-left: 3px solid #fe6b00;
+            }
+
+            .dropdown-ul {
+                padding-left: 10px;
+
+                .dropdown-li {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px 30px 10px;
+                    cursor: pointer;
+                }
             }
         }
 

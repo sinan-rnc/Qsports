@@ -28,7 +28,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div> */}
-                                <div className="footer_col">
+                <div className="footer_col">
                     <h1>Contact Us</h1>
                     <div className="contact_content">
                         <p>At QSports, we are always open for cooperation and suggestions, contact us in one of the ways below:</p>
