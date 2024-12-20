@@ -23,8 +23,8 @@ export default function TournamentDashboard() {
                     <thead>
                     <tr>
                         <th>SI NO</th>
-                        <th>NAME</th>
-                        <th>STATUS</th>
+                        <th>TOURNAMENT NAME</th>
+                        <th>RANKING</th>
                         {/* <th>TOTAL</th> */}
                     </tr>
                     </thead>

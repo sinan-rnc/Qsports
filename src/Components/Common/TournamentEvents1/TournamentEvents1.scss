@@ -1,7 +1,7 @@
 .tournamentevents1-section {
-    margin-top: 100px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background: #333;
     color: #ffffff;
     display: block;
@@ -15,7 +15,7 @@
     }
 
     .section-bottom {
-        margin-top: 50px;
+        margin-top: 30px;
 
         .event {
             display: flex;
@@ -25,10 +25,13 @@
 
             .event-left {
                 width: 50%;
-                height: 600px;
+                height: 400px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 img {
-                    width: 100%;
+                    width: 400px;
                     height: 100%;
                 }
             }
@@ -55,7 +58,7 @@
                 }
 
                 .details {
-                    margin-top: 50px;
+                    margin-top: 30px;
                     display: flex;
                     gap: 100px;
 
@@ -75,7 +78,7 @@
             .event-right::before {
                 content: "";
                 position: absolute;
-                top: 100px; /* Controls vertical positioning */
+                top: 50px; /* Controls vertical positioning */
                 left: 50px;
                 width: 50px; /* Horizontal part of the L */
                 height: 10px; /* Thickness of the line */
@@ -85,10 +88,10 @@
             .event-right::after {
                 content: "";
                 position: absolute;
-                top: 100px; /* Align with the ::before line */
+                top: 50px; /* Align with the ::before line */
                 left: 50px;
                 width: 10px; /* Vertical part of the L */
-                height: 100px; /* Length of the vertical line */
+                height: 50px; /* Length of the vertical line */
                 background-color: #fe6b00; /* Line color */
             }
         }

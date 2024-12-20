@@ -83,6 +83,7 @@ export default function Header({searchOption, handleSearchOption}) {
                     username : "",
                     password : ""
                 })
+                navigate("/account")
             } else {
                 alert("Invalid Username/Password")
                 setServerErrors("Invalid Username/Password")

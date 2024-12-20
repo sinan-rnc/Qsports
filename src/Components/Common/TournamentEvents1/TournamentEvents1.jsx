@@ -12,7 +12,7 @@ export default function TournamentEvents1() {
                         <hr className="hr-1"/><hr className="hr-2"/>
                         <h3 className="second-heading">what's New</h3>
                     </div>
-                    <a href="/tournament"><button className="btn-style">
+                    <a href="/tournaments"><button className="btn-style">
                         View All
                     </button></a>
                 </div>

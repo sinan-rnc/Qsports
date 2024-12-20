@@ -16,7 +16,7 @@ export default function ClubBarProfile() {
                     </div>
                     <div className="form-group">
                         <label className="form-label" for="clubBarNumber">Club/Bar ID</label>
-                        <input type="text" className="form-control" id="clubBarNumber" placeholder="Enter the Club/Bar Number"/>
+                        <input type="text" className="form-control" id="clubBarNumber" placeholder="Enter the Club/Bar ID"/>
                     </div>
                     <div className="form-group">
                         <label className="form-label" for="clubBarNumber">Club/Bar Slogan</label>

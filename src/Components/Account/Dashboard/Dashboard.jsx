@@ -16,16 +16,25 @@ export default function Dashboard({ setSelectedDashboard }) {
     return (
         <div className="dashboard-container">
             <div className="dashboard-profile">
-                <div className="dashborad-heading">
-                    <h1 className='dashborad-main-heading'>Dashboard</h1>
-                    <hr className="dashborad-hr-1"/><hr className="dashborad-hr-2"/>
-                    {/* <h3 className="second-heading">Welcome User</h3> */}
-                </div>
-                <div className="user-profile">
-                    <img src={photo} alt="user"/>
-                    <h1>Qsports</h1>
-                    <span>qsports@gmail.com</span>
+                <div className="heading-div">
+                    <div className="dashborad-heading">
+                        <h1 className='dashborad-main-heading'>Dashboard</h1>
+                        <hr className="dashborad-hr-1"/><hr className="dashborad-hr-2"/>
+                        {/* <h3 className="second-heading">Welcome User</h3> */}
+                    </div>
                     <button className="edit-profile" onClick={() => {setSelectedDashboard("userProfile")}}>Edit Profile</button>
+                </div>
+                
+                <div className="user-profile">
+                    <div>
+                        <img src={photo} alt="user"/>
+                    </div>
+                    <div>
+                        <h1>Qsports</h1>
+                        <p style={{marginTop:"20px"}}>qsports@gmail.com</p>
+                        <p style={{marginTop:"10px"}}>Phone Number : 971 987654321</p>
+                        <p style={{marginTop:"10px"}}>Location : Dubai, UAE</p>
+                    </div>
                 </div>
             </div>
             <div className="dashboard-history">
@@ -39,8 +48,8 @@ export default function Dashboard({ setSelectedDashboard }) {
                     <thead>
                     <tr>
                         <th>SI NO</th>
-                        <th>NAME</th>
-                        <th>STATUS</th>
+                        <th>TOURNAMENT NAME</th>
+                        <th>RANKING</th>
                         {/* <th>TOTAL</th> */}
                     </tr>
                     </thead>

@@ -5,15 +5,20 @@ import instagram from "../../../Assets/Social-Links/instagram.svg"
 import youtube from "../../../Assets/Social-Links/youtube.svg"
 import twitter from "../../../Assets/Social-Links/twitter.svg"
 import linkedin from "../../../Assets/Social-Links/linkedin.svg"
+import stick from "../../../Assets/Common/Billiard-Stick.png"
 
 import { FaFacebook, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
 
 import "./Footer.scss"
 import { RiInstagramFill } from "react-icons/ri"
+import { useLocation } from "react-router-dom"
 
 export default function Footer() {
+    const location = useLocation()
     return (
         <footer>
+            {/* <hr className="footer-hr"/> */}
+            {location.pathname === "/" && <img src={stick} alt="" className="stick"/> } 
             <div className="footer_row container">
                 {/* <div className="footer_col">
                     <div className="logo_div">
@@ -29,7 +34,11 @@ export default function Footer() {
                     </div>
                 </div> */}
                 <div className="footer_col">
-                    <h1>Contact Us</h1>
+                    <div className="dashborad-heading">
+                        <h1 className='dashborad-main-heading'>Contact Us</h1>
+                        <hr className="dashborad-hr-1"/><hr className="dashborad-hr-2"/>
+                        {/* <h3 className="dashborad-second-heading">Club</h3> */}
+                    </div>
                     <div className="contact_content">
                         <p>At QSports, we are always open for cooperation and suggestions, contact us in one of the ways below:</p>
                         <div className="contact_details">
@@ -53,7 +62,11 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="footer_col">
-                    <h1>Information</h1>
+                    <div className="dashborad-heading">
+                        <h1 className='dashborad-main-heading'>Information</h1>
+                        <hr className="dashborad-hr-1"/><hr className="dashborad-hr-2"/>
+                        {/* <h3 className="dashborad-second-heading">Club</h3> */}
+                    </div>
                     <ul>
                         <li>About Us</li>
                         <li>Delivery Information</li>
@@ -65,7 +78,11 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div className="footer_col">
-                    <h1>My Account</h1>
+                <div className="dashborad-heading">
+                        <h1 className='dashborad-main-heading'>My Account</h1>
+                        <hr className="dashborad-hr-1"/><hr className="dashborad-hr-2"/>
+                        {/* <h3 className="dashborad-second-heading">Club</h3> */}
+                    </div>
                     <ul>
                         <li>Store Location</li>
                         <li>Order History</li>
@@ -77,9 +94,17 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div className="footer_col">
-                    <h1>Newsletter</h1>
+                <div className="dashborad-heading">
+                        <h1 className='dashborad-main-heading'>Newsletter</h1>
+                        <hr className="dashborad-hr-1"/><hr className="dashborad-hr-2"/>
+                        {/* <h3 className="dashborad-second-heading">Club</h3> */}
+                    </div>
                     <div className="newsletter_details">
                         <p>Enter your email address below to subscribe to our newsletter and keep up to date with discounts and special offers.</p>
+                        <div className="newsletter_input">
+                            <input className="input" type="text" placeholder="Enter your email address"/>
+                            <button>Subscribe</button>
+                        </div>
                         <p className="social_head">Follow us On :</p>
                         <div className="social_links">
                             <FaFacebook />
