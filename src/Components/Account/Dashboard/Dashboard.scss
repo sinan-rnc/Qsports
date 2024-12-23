@@ -40,7 +40,7 @@
         .user-profile {
             display: flex;
             flex-direction: row;
-            align-items: center;
+            // align-items: center;
             gap: 50px;
             // justify-content: space-between;
             // padding-left: 100px;
@@ -48,6 +48,18 @@
 
             img {
                 width: 200px;
+            }
+
+            .user-profile-details {
+                display: flex;
+                flex-direction: column;
+                // align-items: center;
+                // flex-direction: column;
+                // justify-content: space-between;
+
+                .details {
+                    margin-top: 30px;
+                }
             }
         }
     }

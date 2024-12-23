@@ -19,18 +19,25 @@ export default function App() {
         setSearchOption(option)
     }
 
+    const [myTournamentButton, setMyTournamentButton] = useState("")
+
+    const handleMyTournamentClick = () => {
+        setMyTournamentButton("myTournaments")
+        console.log(myTournamentButton)
+    }
+
     return (
         <Fragment>
-            <Header searchOption={searchOption} handleSearchOption={handleSearchOption}/>
+            <Header searchOption={searchOption} handleSearchOption={handleSearchOption} myTournamentButton={myTournamentButton} handleMyTournamentClick={handleMyTournamentClick}/>
             <Routes>
                 <Route path="/" element={<HomePage/>} />
                 <Route path="/about-us" element={<AboutUsPage/>} />
                 <Route path="/bars-and-clubs" element={<BarAndClubPage searchOption={searchOption}/>} />
                 <Route path="/tournaments" element={<TournamentPage/>} />
-                <Route path="/account" element={<AccountPage/>} />
+                <Route path="/account" element={<AccountPage myTournamentButton={myTournamentButton}/>} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/dashboard" element={<DashboardHome />} />
+                <Route path="/register" element={<Register />} />  
+                {/* <Route path="/dashboard" element={<DashboardHome myTournamentButton={myTournamentButton}/>} /> */}
             </Routes>
             <Footer/>
         </Fragment>

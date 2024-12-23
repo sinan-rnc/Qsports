@@ -14,7 +14,7 @@ import english from "../../../Assets/Common/english.png"
 import photo from "../../../Assets/Common/user.png"
 import { ImSearch } from "react-icons/im";
 
-export default function Header({searchOption, handleSearchOption}) {
+export default function Header({searchOption, handleSearchOption, handleMyTournamentClick}) {
 
     const navigate = useNavigate()
 
@@ -145,7 +145,11 @@ export default function Header({searchOption, handleSearchOption}) {
                         {/* <img src={logo} alt="logo"/> */}
                     </div>
                     <ul className="acc_details">
-                        <li>
+                        <li onClick={() => {
+                            handleMyTournamentClick()
+                            // console.log("hii")
+                            navigate("/account")
+                        }}>
                             <SiAmazongames size={"30px"}/>
                             My Tournaments
                         </li>
@@ -235,7 +239,7 @@ export default function Header({searchOption, handleSearchOption}) {
                             <label>
                                 <input type="radio" name="Tournament" value="Tournament" checked={searchOption === "Tournament"} onChange={(e) => {handleSearchOption(e.target.value)}}/>
                                 <span class="custom-radio"></span>
-                                All Tournament
+                                All Tournaments
                             </label>
                         </div>
                         <div className="search-button-div">

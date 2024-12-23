@@ -4,11 +4,11 @@ import UserProfile from "../UserProfile/UserProfile"
 import TournamentDashboard from "../TournamentDashboard/TournamentDashboard"
 import "./DashboardHome.scss"
 import ClubBarProfile from "../ClubBarProfile/ClubBarProfile"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useAuth } from "../../../Context/AuthContext"
 import { useNavigate } from "react-router-dom"
 
-export default function DashboardHome() {
+export default function DashboardHome({myTournamentButton}) {
     const navigate = useNavigate()
     const {handleLogout} = useAuth()
     const [selectedDashboard, setSelectedDashboard] = useState("dashboard")
@@ -17,8 +17,19 @@ export default function DashboardHome() {
         { key: "userProfile", label: "Edit Profile", component: <UserProfile /> },
         { key: "clubBarProfile", label: "Edit Profile", component: <ClubBarProfile /> },
         { key: "password", label: "Password", component: <Password /> },
-        { key: "tournaments", label: "Tournaments", component: <TournamentDashboard /> },
+        { key: "myTournaments", label: "My Tournaments", component: <TournamentDashboard /> },
     ];
+
+    // console.log(myTournamentButton)
+
+    useEffect(() => {
+        if(myTournamentButton === "myTournaments") {
+            setSelectedDashboard(myTournamentButton)
+            console.log(myTournamentButton)
+        } else {
+            setSelectedDashboard("dashboard")
+        }
+    }, [])
 
     return (
         <section>
@@ -38,7 +49,7 @@ export default function DashboardHome() {
                                 <li className="dropdown-li" onClick={() => {setSelectedDashboard("clubBarProfile")}}>Club</li>
                         </ul>
                         <li className={`menubar-li ${selectedDashboard == "password" ? "active" : ""}`} onClick={() => {setSelectedDashboard("password")}}>Password</li>
-                        <li className={`menubar-li ${selectedDashboard == "tournaments" ? "active" : ""}`} onClick={() => {setSelectedDashboard("tournaments")}}>Tournaments</li>
+                        <li className={`menubar-li ${selectedDashboard == "myTournaments" ? "active" : ""}`} onClick={() => {setSelectedDashboard("myTournaments")}}>My Tournaments</li>
                     </ul>
                     <hr className="dashboard-hr"/>
                     <button className="logout-btn" onClick={() => {

@@ -61,7 +61,7 @@ export default function Register() {
                     <div className="heading">
                         <h1 className='main-heading'>Register</h1>
                         <hr className="hr-1"/><hr className="hr-2"/>
-                        <h3 className="second-heading">Add an account here</h3>
+                        <h3 className="second-heading">Create an account here</h3>
                     </div>
                     <hr className="form-hr"/>
                     <form className="form-table" onSubmit={handleFormSubmit}>

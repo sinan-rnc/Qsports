@@ -1,19 +1,19 @@
 .aboutus-hero {
     position: relative;
     width: 100vw; /* Full width of the viewport */
-    height: 1000px; /* Full height of the viewport */
+    height: 100vh; /* Full height of the viewport */
     z-index: 1;
     top: 0;
     display: flex;
     align-items: center; /* Align content to the top */
     justify-content: center;
     overflow: hidden; /* Ensure no content spills outside */
-    padding-bottom: 100px;
+    // padding-bottom: 100px;
 
     .overlay {
         position: absolute;
         width: 100%;
-        height: 100%;
+        height: auto;
         background-color: rgba(0, 0, 0, 0.3);
         z-index: 1; /* Overlay stays above the image */
     }
@@ -34,6 +34,7 @@
         display: flex;
         flex-direction: row;
         gap: 50px;
+        margin-bottom: 50px;
 
         .hero-details {
             width: 40%;
@@ -47,7 +48,6 @@
             z-index: 1;
             padding: 50px;
             gap: 30px;
-            margin-bottom: 50px;
     
             img {
                 width: 100px;
@@ -59,8 +59,9 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            padding-bottom: 50px;
             gap: 30px;
+            color: black;
+            z-index: 2;
 
             .stats {
                 display: flex;

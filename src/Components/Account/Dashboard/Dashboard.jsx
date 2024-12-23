@@ -7,11 +7,14 @@ export default function Dashboard({ setSelectedDashboard }) {
     const user = useAuth()
 
     const tournamentStatus = [
-        { id: 1, name: "Rack 'Em Up Challenge", ranking: "First", total: "" },
-        { id: 2, name: "The Cue Masters Cup", ranking: "Fifth", total: "" },
-        { id: 3, name: "Eight-Ball Showdown", ranking: "Seventh", total: "" },
-        { id: 4, name: "Break & Brew Tournament", ranking: "Tenth", total: "" },
-      ];
+        { id: 1, date: "25 JAN 2024", name: "Rack 'Em Up Challenge", ranking: "First", total: "" },
+        { id: 2, date: "30 JAN 2024", name: "The Cue Masters Cup", ranking: "Fifth", total: "" },
+        { id: 3, date: "01 APRIL 2024", name: "Eight-Ball Showdown", ranking: "Seventh", total: "" },
+        { id: 4, date: "10 JUNE 2024", name: "Neon Nights Club", ranking: "Tenth", total: "" },
+        { id: 5, date: "20 SEPT 2024", name: "Neon Cue Fiesta", ranking: "Not Qualified", total: "" },
+        { id: 6, date: "01 DEC 2024", name: "Rack and Roll Championship", ranking: "Not Qualified", total: "" },
+        { id: 6, date: "20 DEC 2024", name: "Midnight Cue Clash", ranking: "Quater-Finalist", total: "" },
+    ];
 
     return (
         <div className="dashboard-container">
@@ -29,11 +32,13 @@ export default function Dashboard({ setSelectedDashboard }) {
                     <div>
                         <img src={photo} alt="user"/>
                     </div>
-                    <div>
+                    <div className="user-profile-details">
                         <h1>Qsports</h1>
-                        <p style={{marginTop:"20px"}}>qsports@gmail.com</p>
-                        <p style={{marginTop:"10px"}}>Phone Number : 971 987654321</p>
-                        <p style={{marginTop:"10px"}}>Location : Dubai, UAE</p>
+                        <div className="details">
+                            <p style={{marginTop:"20px"}}>qsports@gmail.com</p>
+                            <p style={{marginTop:"10px"}}>Phone Number : 971 987654321</p>
+                            <p style={{marginTop:"10px"}}>Location : Dubai, UAE</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,7 +52,7 @@ export default function Dashboard({ setSelectedDashboard }) {
                 <table className="recent-orders__table">
                     <thead>
                     <tr>
-                        <th>SI NO</th>
+                        <th>DATE</th>
                         <th>TOURNAMENT NAME</th>
                         <th>RANKING</th>
                         {/* <th>TOTAL</th> */}
@@ -56,7 +61,7 @@ export default function Dashboard({ setSelectedDashboard }) {
                     <tbody>
                     {tournamentStatus.map((ele, index) => (
                         <tr key={index}>
-                            <td>{ele.id}</td>
+                            <td>{ele.date}</td>
                             <td>{ele.name}</td>
                             <td>{ele.ranking}</td>
                             {/* <td>{ele.total}</td> */}

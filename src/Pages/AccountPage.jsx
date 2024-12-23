@@ -6,7 +6,8 @@ import Register from "../Components/Account/Register/Register";
 import Login from "../Components/Account/Login/Login"
 import DashboardHome from "../Components/Account/DashboardHome/DashboardHome";
 
-export default function AccountPage() {
+export default function AccountPage({myTournamentButton}) {
+    console.log(myTournamentButton)
     return (
         <Fragment>
             <Helmet title="Account">
@@ -14,7 +15,7 @@ export default function AccountPage() {
                 </Routes> */}
                 {/* <Login/>
                 <Register/> */}
-                <DashboardHome/>
+                <DashboardHome myTournamentButton={myTournamentButton}/>
             </Helmet>
         </Fragment>
     )

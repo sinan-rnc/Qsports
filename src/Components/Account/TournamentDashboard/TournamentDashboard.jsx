@@ -3,10 +3,13 @@ import "./TournamentDashboard.scss"
 
 export default function TournamentDashboard() {
     const tournamentStatus = [
-        { id: 1, name: "Rack 'Em Up Challenge", ranking: "First", total: "" },
-        { id: 2, name: "The Cue Masters Cup", ranking: "Fifth", total: "" },
-        { id: 3, name: "Eight-Ball Showdown", ranking: "Seventh", total: "" },
-        { id: 4, name: "Break & Brew Tournament", ranking: "Tenth", total: "" },
+        { id: 1, date: "25 JAN 2024", name: "Rack 'Em Up Challenge", ranking: "First", total: "" },
+        { id: 2, date: "30 JAN 2024", name: "The Cue Masters Cup", ranking: "Fifth", total: "" },
+        { id: 3, date: "01 APRIL 2024", name: "Eight-Ball Showdown", ranking: "Seventh", total: "" },
+        { id: 4, date: "10 JUNE 2024", name: "Neon Nights Club", ranking: "Tenth", total: "" },
+        { id: 5, date: "20 SEPT 2024", name: "Neon Cue Fiesta", ranking: "Not Qualified", total: "" },
+        { id: 6, date: "01 DEC 2024", name: "Rack and Roll Championship", ranking: "Not Qualified", total: "" },
+        { id: 6, date: "20 DEC 2024", name: "Midnight Cue Clash", ranking: "Quater-Finalist", total: "" },
     ];
 
       const [openAddTournamentSection, setOpenAddTournamentSection] = useState(false)
@@ -22,7 +25,7 @@ export default function TournamentDashboard() {
                 <table className="recent-orders__table">
                     <thead>
                     <tr>
-                        <th>SI NO</th>
+                        <th>DATE</th>
                         <th>TOURNAMENT NAME</th>
                         <th>RANKING</th>
                         {/* <th>TOTAL</th> */}
@@ -31,7 +34,7 @@ export default function TournamentDashboard() {
                     <tbody>
                     {tournamentStatus.map((ele, index) => (
                         <tr key={index}>
-                            <td>{ele.id}</td>
+                            <td>{ele.date}</td>
                             <td>{ele.name}</td>
                             <td>{ele.ranking}</td>
                             {/* <td>{ele.total}</td> */}
@@ -40,11 +43,10 @@ export default function TournamentDashboard() {
                     </tbody>
                 </table>
             </div>
-            <div className="add-tournament-section">
+            {/* <div className="add-tournament-section">
                 <div className="dashborad-heading" onClick={() => {setOpenAddTournamentSection(!openAddTournamentSection)}}>
                     <h1 className='dashborad-main-heading'>New Tournament</h1>
                     <hr className={`dashborad-hr-1 ${openAddTournamentSection && "rotate"}`}/><hr className="dashborad-hr-2"/>
-                    {/* <h3 className="second-heading">Welcome User</h3> */}
                 </div>
                 {openAddTournamentSection && (
                     <div className="tournament-from">
@@ -73,7 +75,7 @@ export default function TournamentDashboard() {
                         </form>
                     </div>
                 )}
-            </div>
+            </div> */}
         </div>
     )
 }
