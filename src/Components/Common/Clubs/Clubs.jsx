@@ -1,26 +1,23 @@
-import "./Tournaments.scss"
+import "./Clubs.scss"
 import { CiGrid41, CiGrid2H, CiGrid2V } from "react-icons/ci";
-import { tournaments } from "../../../DataSet/tournaments"
+import { barsAndClubs } from "../../../DataSet/barsAndClubs"
 import { RiExpandUpDownFill } from "react-icons/ri";
-import { ImEnlarge } from "react-icons/im";
+// import { ImEnlarge } from "react-icons/im";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
-import stick from "../../../Assets/Common/Billiard-Stick.png"
-import { MdOutlineZoomOutMap } from "react-icons/md";
+// import stick from "../../../Assets/Common/Billiard-Stick.png"
+// import { MdOutlineZoomOutMap } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { dubaiCities } from "../../../DataSet/dubaiCities";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion"
 import { useAuth } from "../../../Context/AuthContext";
 
-export default function Tournaments({searchOption}) {
-
+export default function Clubs({searchOption}) {
     const {searchCity, handleSearchCity} = useAuth()
 
     const [sortBy, setSortBy] = useState("")
-    const [showNo, setShowNo] = useState(6)
+    const [showNo, setShowNo] = useState(12)
     const [cityFilterOpen, setCityFilterOpen] = useState(true)
-    const [categoryFilter, setCategoryFilter] = useState("")
-    const [categoryFilterOpen, setCategoryFilterOpen] = useState(true)
     const [priceFilter, setPriceFilter] = useState("")
     const [priceFilterOpen, setPriceFilterOpen] = useState(true)
     const [tournamentFilter, setTournamentFilter] = useState([])
@@ -28,27 +25,36 @@ export default function Tournaments({searchOption}) {
     const [currentPage, setCurrentPage] = useState(1);
     const [gridDisplay, setGridDisplay] = useState("style1")
     
-    // console.log(sortBy, showNo)
+    console.log(searchCity)
+
+    // useEffect(() => {
+    //     if (searchCity) {
+    //         handleSearchCity(searchCity)
+    //         console.log(searchCity)
+    //     }
+    // }, [handleSearchCity, searchCity])
+
+    // const handleCategoryChange = (city) => {
+    //     if (categoryFilter.includes(city)) {
+    //         // Remove the city from the filter
+    //         setCategoryFilter(categoryFilter.filter((item) => item !== city));
+    //     } else {
+    //         // Add the city to the filter
+    //         setCategoryFilter([...categoryFilter, city]);
+    //     }
+    // };
 
     // Filtered and sorted array based on selected filters and sort option
     const getProcessedBarsAndClubs = () => {
         // Apply category filter
-        let filteredArray = tournaments.filter((ele) => {
-            if (categoryFilter && !ele.category.includes(categoryFilter)) {
-                return false; // If category filter does not match, exclude this item
-            }
-
+        let filteredArray = barsAndClubs.filter((ele) => {
             if (searchCity && !ele.city.includes(searchCity)) {
                 return false; // If category filter does not match, exclude this item
             }
-
-            if (tournamentFilter && !ele.type.includes(tournamentFilter)) {
-                return false;
-            }
             // Apply additional filters here (like priceFilter, tournamentFilter, etc.)
-            if (priceFilter === "high" && ele.fees < 250) return false;
-            if (priceFilter === "medium" && (ele.fees >= 250 || ele.fees < 200)) return false;
-            if (priceFilter === "low" && ele.fees >= 200) return false;
+            if (priceFilter === "high" && ele.amount < 150) return false;
+            if (priceFilter === "medium" && (ele.amount >= 150 || ele.amount < 100)) return false;
+            if (priceFilter === "low" && ele.amount >= 100) return false;
 
             return true; // Include the item if it passes the filters
         });
@@ -59,8 +65,8 @@ export default function Tournaments({searchOption}) {
                 return a.name.localeCompare(b.name);
             } else if (sortBy === "City") {
                 return a.city.localeCompare(b.city);
-            } else if (sortBy === "Fees") {
-                return a.fees - b.fees;
+            } else if (sortBy === "Price") {
+                return a.amount - b.amount;
             }
             return 0; // Default to no sorting
         });
@@ -71,19 +77,16 @@ export default function Tournaments({searchOption}) {
         return filteredArray.slice(startIndex, endIndex);
     };
 
-    const totalFilteredItems = tournaments.filter((ele) => {
-        if (categoryFilter && !ele.category.includes(categoryFilter)) {
+    getProcessedBarsAndClubs()
+
+    const totalFilteredItems = barsAndClubs.filter((ele) => {
+        if (searchCity && !ele.city.includes(searchCity)) {
             return false; // If category filter does not match, exclude this item
         }
-
-        if (tournamentFilter && !ele.type.includes(tournamentFilter)) {
-            return false;
-        }
-
         // Apply additional filters here (like priceFilter, tournamentFilter, etc.)
-        if (priceFilter === "high" && ele.fees < 250) return false;
-        if (priceFilter === "medium" && (ele.fees >= 250 || ele.fees < 200)) return false;
-        if (priceFilter === "low" && ele.fees >= 200) return false;
+        if (priceFilter === "high" && ele.amount < 150) return false;
+        if (priceFilter === "medium" && (ele.amount >= 150 || ele.amount < 100)) return false;
+        if (priceFilter === "low" && ele.amount >= 100) return false;
 
         return true; // Include the item if it passes the filters
     }).length;
@@ -115,57 +118,25 @@ export default function Tournaments({searchOption}) {
     };
 
     const handleReset = () => {
-        setCategoryFilter("");
-        setPriceFilter("");
-        setTournamentFilter("")
         handleSearchCity("")
+        setPriceFilter("");
     }
 
     // console.log(pageNumbers)
       
     return (
-        <section className="tournament container-section">
+        <section className="bars container-section">
             <div className="heading">
-                <h1 className='main-heading'>Tournaments</h1>
+                <h1 className='main-heading'>Clubs</h1>
                 <hr className="hr-1"/><hr className="hr-2"/>
-                <h3 className="second-heading">All Events</h3>
+                <h3 className="second-heading">all</h3>
             </div>
+            {/* <img src={stick} alt="" className="stick"/>   */}
+                
             <div className="section">
                 {/* <!-- Filters Sidebar --> */}
                 <div className="filters">
                     <h3>Filters</h3>
-                    <div className="filter-category">
-                        <div className="filter-header" onClick={() => setCategoryFilterOpen(!categoryFilterOpen)}>
-                            <span>Categories</span>
-                            {!categoryFilterOpen ? <FaCaretDown /> : <FaCaretUp/>}
-                        </div>
-                        <motion.ul
-                            id="categories"
-                            initial={false}
-                            animate={{ height: categoryFilterOpen ? "auto" : 0 }}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                            className="filter-content"
-                            style={{ overflow: "hidden" }}
-                            >
-                            <li>
-                                <input 
-                                    type="checkbox" 
-                                    value="Club" 
-                                    checked={categoryFilter === "Club"}
-                                    onChange={(e) => setCategoryFilter(e.target.value)}
-                                />
-                                <span>Clubs</span>
-                            </li>
-                            <li>
-                                <input 
-                                    type="checkbox" 
-                                    value="Bar" 
-                                    checked={categoryFilter === "Bar"}
-                                    onChange={(e) => setCategoryFilter(e.target.value)}
-                                />
-                                <span>Bars</span></li>
-                        </motion.ul>
-                    </div>
                     {/* <hr/> */}
                     <div className="filter-category">
                         <div className="filter-header" onClick={() => setCityFilterOpen(!cityFilterOpen)}>
@@ -214,52 +185,12 @@ export default function Tournaments({searchOption}) {
                             transition={{ duration: 0.5, ease: "easeInOut" }}
                             className="filter-content"
                             style={{ overflow: "hidden" }}
-                            >
-                            <li>
-                                <input 
-                                    type="checkbox"
-                                    value="Single Elimination"
-                                    checked={tournamentFilter === "Single Elimination"}
-                                    onChange={(e) => setTournamentFilter(e.target.value)}
-                                />
-                                <span>Single Elimination</span>
-                            </li>
-                            <li>
-                                <input 
-                                    type="checkbox"
-                                    value="Double Elimination"
-                                    checked={tournamentFilter === "Double Elimination"}
-                                    onChange={(e) => setTournamentFilter(e.target.value)}
-                                />
-                                <span>Double Elimination</span>
-                            </li>
-                            <li>
-                                <input 
-                                    type="checkbox"
-                                    value="Round Robin"
-                                    checked={tournamentFilter === "Round Robin"}
-                                    onChange={(e) => setTournamentFilter(e.target.value)}
-                                />
-                                <span>Round Robin</span>
-                            </li>
-                            <li>
-                                <input 
-                                    type="checkbox"
-                                    value="Ladder Tournament"
-                                    checked={tournamentFilter === "Ladder Tournament"}
-                                    onChange={(e) => setTournamentFilter(e.target.value)}
-                                />
-                                <span>Ladder Tournament</span>
-                            </li>
-                            <li>
-                                <input 
-                                    type="checkbox"
-                                    value="Swiss System"
-                                    checked={tournamentFilter === "Swiss System"}
-                                    onChange={(e) => setTournamentFilter(e.target.value)}
-                                />
-                                <span>Swiss System</span>
-                            </li>
+                        >
+                            <li><input type="checkbox"></input><span>Single Elimination</span></li>
+                            <li><input type="checkbox"></input><span>Double Elimination</span></li>
+                            <li><input type="checkbox"></input><span>Round Robin</span></li>
+                            <li><input type="checkbox"></input><span>Ladder Tournament</span></li>
+                            <li><input type="checkbox"></input><span>Swiss System</span></li>
                         </motion.ul>
                     </div>
                     {/* <hr/> */}
@@ -323,7 +254,7 @@ export default function Tournaments({searchOption}) {
                                         <option value="">Default</option>
                                         <option value="Name">Name</option>
                                         <option value="City">City</option>
-                                        <option value="Fees">Fees</option>
+                                        <option value="Price">Price</option>
                                     </select>
                                     <RiExpandUpDownFill/>
                                 </div>
@@ -332,10 +263,10 @@ export default function Tournaments({searchOption}) {
                                 <label for="show-select">Show:</label>
                                 <div className="sort-select-div">
                                     <select id="show-select" value={showNo} onChange={(e) => {handleShow(e)}}>
-                                        <option value={tournaments.length}>All</option>
+                                        <option value={barsAndClubs.length}>All</option>
                                         <option value="6">6</option>
-                                        <option value="9">9</option>
                                         <option value="12">12</option>
+                                        <option value="24">24</option>
                                     </select>
                                     <RiExpandUpDownFill/>
                                 </div>
@@ -345,35 +276,39 @@ export default function Tournaments({searchOption}) {
 
                     {/* <!-- Product Grid --> */}
                     {getProcessedBarsAndClubs().length === 0 ? (
-                        <div className="tournament-grid-zero">
-                            <p>No Record Found,  <button className="no-record" onClick={handleReset}>Show All</button> </p>
+                        <div className="product-grid-zero">
+                            <p>No Record Found,  <button className="no-record" onClick={handleReset}>Show All</button></p>
                         </div>
                     ) : (
-                        <div className="tournament-grid">
+                        <div className="product-grid">
                         {getProcessedBarsAndClubs().map((ele) => {
                             return (
-                                <div className="tournament-card" key={ele.id}>
+                                <div className="product-card" key={ele.id}>
                                     {/* <div className="product-badges">
                                         <span className="badge sale">Sale</span>
                                         <span className="badge new">New</span>
                                         <span className="badge hot">Hot</span>
                                     </div> */}
-                                    <div className="tournament-image">
+                                    <div className="product-image">
                                         {/* <MdOutlineZoomOutMap /> */}
                                         <img src={ele.image} alt=""/>
                                     </div>
-                                    <div className="tournament-details">
-                                        <div className="top">
-                                            <div className="left">
-                                                <h3>{ele.name}</h3>
-                                                <p>{ele.type}</p>
-                                                <p>At {ele.clubName}</p>
+                                    <div className="product-details">
+                                        <div className="left">
+                                            <h3>{ele.name}</h3>
+                                            <p>{ele.city}</p>
+                                            <div classNameName="rating">
+                                                <span classNameName="star">&#9733;</span>
+                                                <span classNameName="star">&#9733;</span>
+                                                <span classNameName="star">&#9733;</span>
+                                                <span classNameName="star">&#9733;</span>
+                                                <span classNameName="star">&#9733;</span>
                                             </div>
-                                            <div className="right">
-                                                <p className="price">AED {ele.fees}</p>
-                                                <p className="dateNTime">{ele.date} at {ele.time}</p>
-                                                <button>Register Now</button>
-                                            </div>
+                                        </div>
+                                        <div className="right">
+                                            <p className="price">AED {ele.amount}</p>
+                                            <button>Book Now</button>
+                                            {/* <ImEnlarge /> */}
                                         </div>
                                     </div>
                                 </div>

@@ -45,7 +45,7 @@ export default function Login() {
             if(formData.username === defaultUsername && formData.password === defaultPassword) {
                 alert("Successfully Logged In")
                 const user = formData
-                localStorage.setItem("User", user)
+                localStorage.setItem("token", "QSports")
                 handleLogin(user)
                 setFormErrors("")
                 setServerErrors("")
@@ -53,7 +53,7 @@ export default function Login() {
                     username : "",
                     password : ""
                 })
-                navigate("/dashboard")
+                navigate("/account")
             } else {
                 alert("Invalid Username/Password")
                 setServerErrors("Invalid Username/Password")

@@ -7,7 +7,7 @@ import Login from "../Components/Account/Login/Login"
 import DashboardHome from "../Components/Account/DashboardHome/DashboardHome";
 
 export default function AccountPage({myTournamentButton}) {
-    console.log(myTournamentButton)
+    // console.log(myTournamentButton)
     return (
         <Fragment>
             <Helmet title="Account">

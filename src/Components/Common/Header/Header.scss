@@ -1,5 +1,5 @@
 .navbar {
-    // position: absolute;
+    position: relative;
     width: 100%;
     z-index: 10;
     .navbar_top {
@@ -71,18 +71,23 @@
             color: #999;
             cursor: pointer;
 
-            span {
-                color: #fff;
-                font-weight: 700;
-            }
+            ul {
+                display: flex;
+                gap: 20px;
 
-            img {
-                width: 20px;
-            }
-        }
+                li:hover {
+                    color: #fff;
+                }
 
-        .right_ul:hover {
-            color: #fff;
+                span {
+                    color: #fff;
+                    font-weight: 700;
+                }
+    
+                img {
+                    width: 20px;
+                }
+            }
         }
     }
 
@@ -257,6 +262,9 @@
                         a:hover {
                             color: #fe6b00;
                         }
+                    }
+                    .club-register {
+                        margin-top: 5px;
                     }
                 }
 
@@ -495,7 +503,7 @@
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: 135px; /* Positions below the navbar */
+        top: 136px; /* Positions below the navbar */
         left: 50%;
         transform: translateX(-50%);
         display: flex;
@@ -527,12 +535,25 @@
                 display: flex;
                 align-items: center;
                 font-weight: 500;
+
+                select {
+                    border: none;
+                    background: transparent;
+                    font-size: 16px;
+                    color: black;
+                    cursor: pointer;
+                    outline: none;
+                    appearance: none; 
+                    -moz-appearance: none; 
+                    -webkit-appearance: none;
+                    font-weight: 500;
+                }
     
                 input[type="radio"] {
                     display: none; /* Hide the default radio button */
-                  }
+                }
                   
-                  .custom-radio {
+                .custom-radio {
                     margin-right: 10px;
                     width: 15px;
                     height: 15px;
@@ -541,9 +562,9 @@
                     display: inline-block;
                     position: relative;
                     cursor: pointer;
-                  }
+                }
                   
-                  .custom-radio::after {
+                .custom-radio::after {
                     content: '';
                     width: 7px;
                     height: 7px;
@@ -554,15 +575,15 @@
                     left: 50%;
                     transform: translate(-50%, -50%);
                     transition: background-color 0.2s ease;
-                  }
-                  
-                  input[type="radio"]:checked + .custom-radio {
+                }
+                
+                input[type="radio"]:checked + .custom-radio {
                     border-color: #ff5733;
-                  }
-                  
-                  input[type="radio"]:checked + .custom-radio::after {
+                }
+                
+                input[type="radio"]:checked + .custom-radio::after {
                     background-color: #ff5733;
-                  }
+                }
               }
         }
 

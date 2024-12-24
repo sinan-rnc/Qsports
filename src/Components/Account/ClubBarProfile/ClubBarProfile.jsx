@@ -5,7 +5,7 @@ export default function ClubBarProfile() {
         <div className="clubBar-profile-container">
             <div className="clubBar-profile-section">
                 <div className="dashborad-heading">
-                    <h1 className='dashborad-main-heading'>Edit Profile</h1>
+                    <h1 className='dashborad-main-heading'>Registration</h1>
                     <hr className="dashborad-hr-1"/><hr className="dashborad-hr-2"/>
                     <h3 className="dashborad-second-heading">Club</h3>
                 </div>
@@ -142,6 +142,7 @@ export default function ClubBarProfile() {
                     <button className="save-btn">Save</button>
                 </form>
             </div>
+            <p className="login-link">Already Registered? <a href="/register">Login</a></p>
         </div>
     )
 }

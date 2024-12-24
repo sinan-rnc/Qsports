@@ -1,4 +1,5 @@
 export const dubaiCities = [
+  "Al Ain",
   "Al Barsha",
   "Dubai Marina",
   "Business Bay",

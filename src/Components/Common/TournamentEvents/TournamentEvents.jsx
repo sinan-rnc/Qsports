@@ -40,7 +40,7 @@ export default function TournamentEvents() {
                 }}
                 pagination={false}
                 spaceBetween={20}
-                slidesPerView={4}
+                slidesPerView={3}
                 loop={true}
                 speed={1000}
                 effect={'coverflow'}

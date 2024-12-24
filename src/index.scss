@@ -212,3 +212,32 @@ a {
   box-shadow: none;
   color: black;
 }
+
+.alert-message {
+  position: absolute;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  color: black;
+  right: 0;
+  top: 120px;
+  z-index: 10000;
+  padding: 8px 50px 8px;
+  // border-left: 5px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  svg {
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+.alert-message.red {
+  border-left: 5px solid red;
+}
+
+.alert-message.green {
+  border-left: 5px solid green;
+}

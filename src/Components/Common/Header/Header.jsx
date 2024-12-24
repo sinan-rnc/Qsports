@@ -6,30 +6,90 @@ import { SiAmazongames } from "react-icons/si";
 import { FaSearch } from "react-icons/fa";
 import { GiPoolTriangle } from "react-icons/gi";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../../Context/AuthContext";
 
 import logo from "../../../Assets/Logo/logo.gif"
 import english from "../../../Assets/Common/english.png"
 import photo from "../../../Assets/Common/user.png"
 import { ImSearch } from "react-icons/im";
+import { BiLogIn, BiLogOut, BiSolidDrink } from "react-icons/bi";
+import { dubaiCities } from "../../../DataSet/dubaiCities";
+import { IoClose } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 export default function Header({searchOption, handleSearchOption, handleMyTournamentClick}) {
 
     const navigate = useNavigate()
 
-    const {user, handleLogin, handleLogout} = useAuth()
+    const {
+            user, 
+            handleLogin, 
+            handleLogout, 
+            searchCategory, 
+            handleSearchCategory, 
+            searchCity, 
+            handleSearchCity, 
+            openUserDashboard, 
+            setOpenUserDashboard, 
+            handleOpenUserDashboard, 
+            openSearchDashboard, 
+            setOpenSearchDashboard,
+            handleOpenSerachDashboard,
+            alertMessage,
+            setAlertMessage,
+            alertMessageColor,
+            setAlertMessageColor
+        } = useAuth()
+
+    // console.log(user)
+
     const defaultUsername = "qsports@gmail.com"
     const defaultPassword = "Qsports@123"
     const location = useLocation()
-    const [openUserDashboard, setOpenUserDashboard] = useState(false)
-    const [openSearchDashboard, setOpenSearchDashboard] = useState(false)
+    const [selectedLocation, setSelectedLocation] = useState("")
     const [form, setForm] = useState({
         username : "",
         password : ""
     })
     const [formErrors, setFormErrors] = useState("")
     const [serverErrors, setServerErrors] = useState("")
+
+    const userDashboardRef = useRef(null);
+    const searchDashboardRef = useRef(null);
+
+    const handleClickOutside = (event) => {
+        if (
+            userDashboardRef.current &&
+            !userDashboardRef.current.contains(event.target)
+        ) {
+            setOpenUserDashboard(false);
+        }
+    
+        if (
+            searchDashboardRef.current &&
+            !searchDashboardRef.current.contains(event.target)
+        ) {
+            setOpenSearchDashboard(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+    }, [handleClickOutside]);
+
+    useEffect(() => {
+        // Automatically close the alert after 5 seconds
+        if (alertMessage) {
+          const timer = setTimeout(() => {
+            setAlertMessage("");
+          }, 5000);
+          return () => clearTimeout(timer); // Cleanup timer on unmount
+        }
+      }, [alertMessage, setAlertMessage]);
 
     const errors = {}
 
@@ -48,14 +108,6 @@ export default function Header({searchOption, handleSearchOption, handleMyTourna
     //     setForm({...form, [name]: value })
     // }
 
-    const handleOpenUserDashboard = () => {
-        setOpenUserDashboard(!openUserDashboard)
-    }
-
-    const handleOpenSerachDashboard = () => {
-        setOpenSearchDashboard(!openSearchDashboard)
-    }
-
     // const handleCloseDashboard = () => {
     //     setOpenUserDashboard(false)
     // }
@@ -72,10 +124,13 @@ export default function Header({searchOption, handleSearchOption, handleMyTourna
 
         if(Object.keys(errors).length === 0) {
             if(formData.username === defaultUsername && formData.password === defaultPassword) {
-                alert("Successfully Logged In")
+                // alert("Successfully Logged In")
+                setAlertMessage("Successfully Logged In")
+                setAlertMessageColor("green")
                 const user = formData
+                // console.log(user)
                 handleOpenUserDashboard()
-                localStorage.setItem("User", user)
+                localStorage.setItem("token", "QSports")
                 handleLogin(user)
                 setFormErrors("")
                 setServerErrors("")
@@ -96,12 +151,15 @@ export default function Header({searchOption, handleSearchOption, handleMyTourna
     }
 
     const handleSearchSubmit = () => {
-        if(searchOption === "Club" || searchOption === "Bar" || searchOption === "NearBy") {
-            navigate("/bars-and-clubs")
-        } else if(searchOption === "Tournament") {
+        if(searchCategory === "Clubs") {
+            navigate("/clubs")
+        } else if(searchCategory === "Bars") {
+            navigate("/bars")
+        } else if(searchCategory === "Tournaments") {
             navigate("/tournaments")
         }
         handleOpenSerachDashboard()
+        // console.log(searchCity)
     }
 
     return (
@@ -118,7 +176,10 @@ export default function Header({searchOption, handleSearchOption, handleMyTourna
                         <h1>Your Ultimate Destination for Indoor Games!</h1>
                     </div>
                     <div className="right_ul">
-                        Language: <span>EN</span>
+                        <ul>
+                            <li><a href="/club-register"><p className="club-register">Register a new <span>Club</span></p></a></li>
+                            <li>Language: <span>EN</span></li>
+                        </ul>
                         {/* <img src={english} alt=""/> */}
                     </div>
                 </div>
@@ -130,15 +191,18 @@ export default function Header({searchOption, handleSearchOption, handleMyTourna
                         <a href="/about-us" className={location.pathname==="/about-us" ? "active" : ""}><li>
                             About Us
                         </li></a>
-                        <a href="/bars-and-clubs" className={location.pathname==="/bars-and-clubs" ? "active" : ""}><li>
-                            Bars & Clubs
+                        <a href="/clubs" className={location.pathname==="/clubs" ? "active" : ""}><li>
+                            Play Clubs
+                        </li></a>
+                        <a href="/bars" className={location.pathname==="/bars" ? "active" : ""}><li>
+                            Play Bars
                         </li></a>
                         <a href="/tournaments" className={location.pathname==="/tournaments" ? "active" : ""}><li>
                             Tournaments
                         </li></a>
-                        <a href="/account" className={location.pathname==="/account" ? "active" : ""}><li>
+                        {/* <a href="/account" className={location.pathname==="/account" ? "active" : ""}><li>
                             Account
-                        </li></a>
+                        </li></a> */}
                     </ul>
                     <div className="logo">
                         <a href="/"><h1><span>Q</span>SPORTS</h1></a>
@@ -146,15 +210,15 @@ export default function Header({searchOption, handleSearchOption, handleMyTourna
                     </div>
                     <ul className="acc_details">
                         <li onClick={() => {
-                            handleMyTournamentClick()
-                            // console.log("hii")
                             navigate("/account")
+                            setAlertMessage("Login to access to your account")
+                            setAlertMessageColor("red")
                         }}>
-                            <SiAmazongames size={"30px"}/>
-                            My Tournaments
+                            <LuUserRound size={"25px"}/>
+                            My Account
                         </li>
                         <li className="login_div" onClick={() => {handleOpenUserDashboard()}}>
-                            <LuUserRound/>
+                            {user ? <BiLogOut size={"30px"}/> : <BiLogIn size={"30px"}/>}
                             <div className="login">
                                 {user ? <span>QSports</span> : <span>Hello, Log In</span>}
                                 My Profile
@@ -163,7 +227,7 @@ export default function Header({searchOption, handleSearchOption, handleMyTourna
                         {openUserDashboard && (
                             user ? 
                         (
-                            <div className="user-dashboard">
+                            <div ref={userDashboardRef} className="user-dashboard">
                                 <div className="top">
                                     <img src={photo} alt="user"/>
                                     <h1>Qsports<br/><span>{user.username}</span></h1>
@@ -179,11 +243,12 @@ export default function Header({searchOption, handleSearchOption, handleMyTourna
                                     <button className="logout-btn" onClick={() => {
                                         handleLogout()
                                         handleOpenUserDashboard()
+                                        localStorage.removeItem("token")
                                         }}>Logout</button>
                                 </div>
                             </div>
                         ) : (
-                            <div className="login-dashboard">
+                            <div ref={userDashboardRef} className="login-dashboard">
                                 <h1>Log In To Your Account</h1>
                                 <form onSubmit={handleFormSubmit}>
                                     {serverErrors && <span className="from-errors">{serverErrors}</span>}
@@ -194,6 +259,7 @@ export default function Header({searchOption, handleSearchOption, handleMyTourna
                                     <button className="login-btn">Log In</button>
                                 </form>
                                 <p>Don't have an account? <a href="/register">Register</a></p>
+                                <p className="club-register">Register a new <a href="/club-register">Club</a></p>
                             </div>
                         )
                         )}
@@ -212,44 +278,69 @@ export default function Header({searchOption, handleSearchOption, handleMyTourna
                         <div className="icon-div">
                             <hr className="hr-right"/>
                             <div className="icon-right" onClick={handleSearchSubmit}>
-                                <ImSearch size={18}/>
+                                <BiSolidDrink size={22}/>
                             </div>
                         </div>
                     </div>
                 </div>
                 {openSearchDashboard && (
-                    <div className="search-dashboard">
+                    <div ref={searchDashboardRef} className="search-dashboard">
                         <p>Select an option from below</p>
                         <div class="radio-container">
                             <label>
-                                <input type="radio" name="Club" value="Club" checked={searchOption === "Club"} onChange={(e) => {handleSearchOption(e.target.value)}}/>
+                                <input type="radio" name="Clubs" value="Clubs" checked={searchCategory === "Clubs"} onChange={(e) => {handleSearchCategory(e.target.value)}}/>
                                 <span class="custom-radio"></span>
-                                All Clubs
+                                Play Clubs
                             </label>
                             <label>
-                                <input type="radio" name="Bar" value="Bar" checked={searchOption === "Bar"} onChange={(e) => {handleSearchOption(e.target.value)}}/>
+                                <input type="radio" name="Bars" value="Bars" checked={searchCategory === "Bars"} onChange={(e) => {handleSearchCategory(e.target.value)}}/>
                                 <span class="custom-radio"></span>
-                                All Bars
+                                Play Bars
                             </label>
                             <label>
-                                <input type="radio" name="NearBy"  value="NearBy" checked={searchOption === "NearBy"} onChange={(e) => {handleSearchOption(e.target.value)}}/>
+                                <input type="radio" name="Tournaments" value="Tournaments" checked={searchCategory === "Tournaments"} onChange={(e) => {handleSearchCategory(e.target.value)}}/>
                                 <span class="custom-radio"></span>
-                                Near By Clubs & Bars
+                                Play Tournaments
                             </label>
+                        </div>
+                        <p style={{marginTop: "20px"}}>Select a City</p>
+                        <div class="radio-container">
                             <label>
-                                <input type="radio" name="Tournament" value="Tournament" checked={searchOption === "Tournament"} onChange={(e) => {handleSearchOption(e.target.value)}}/>
+                                <input type="radio" name="city" value={searchCity} checked={searchCity} onChange={(e) => {handleSearchCity(e.target.value)}}/>
                                 <span class="custom-radio"></span>
-                                All Tournaments
+                                <select id="location-select" value={searchCity} onChange={(e) => handleSearchCity(e.target.value)}>
+                                    <option value="">Select City</option>
+                                    {dubaiCities.map((city, index) => (
+                                        <option key={index} value={city}>
+                                            {city}
+                                        </option>
+                                    ))}
+                                </select>
                             </label>
                         </div>
                         <div className="search-button-div">
-                            <button className="search-btn" onClick={() => {handleSearchOption("")}}>Reset</button>
+                            <button className="search-btn" onClick={() => {
+                                handleSearchCategory("")
+                                setSelectedLocation("")
+                                handleSearchCity("")
+                            }}>Reset</button>
                             <button className="search-btn" onClick={handleSearchSubmit}>Search</button>
                         </div>
                         
                     </div>
                 )}
             </div>
+            {alertMessage && !user && (
+                 <motion.div 
+                    className={`alert-message red`}
+                    initial={{ x: "100%" }} // Start off-screen
+                    animate={{ x: 0 }} // Animate to the screen
+                    exit={{ x: "100%", opacity: 0 }} // Exit off-screen
+                    transition={{ duration: 0.5, ease: "easeInOut" }} // Smooth animation
+                 >
+                    {alertMessage} <IoClose onClick={() => {setAlertMessage("")}}/>   
+                </motion.div>
+            )}
         </nav>
     )
 }

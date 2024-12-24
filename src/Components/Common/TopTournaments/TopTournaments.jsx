@@ -1,74 +1,65 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-import { tournaments } from "../../../DataSet/tournaments"
-
 import "./TopTournaments.scss"
+import image1 from "../../../Assets/Tournaments/image4.png"
+import image2 from "../../../Assets/Tournaments/image6.jpeg"
 
 export default function TopTournaments() {
     return (
-        <section className="tournaments">
-            <div className="tournament-section container-section">
-                <div className="tournament-header">
-                    <button className="arrow prev-arrow"><span>❮</span></button>
-                    <h2>Top Tournaments</h2>
-                    <button className="arrow next-arrow"><span>❯</span></button>
+        <section>
+            <div className="tournamentevents1-section container-section">
+                <div className="section-top">
+                    <div className="heading">
+                        <h1 className='main-heading'>Top Tournaments</h1>
+                        <hr className="hr-1"/><hr className="hr-2"/>
+                        <h3 className="second-heading">what's New</h3>
+                    </div>
+                    <a href="/tournaments"><button className="btn-style">
+                        View All
+                    </button></a>
                 </div>
-                <Swiper
-                    modules={[EffectCoverflow, Navigation, Pagination]}
-                    navigation={{
-                        nextEl: '.next-arrow',
-                        prevEl: '.prev-arrow',
-                    }}
-                    pagination={{ clickable: true }}
-                    spaceBetween={40}
-                    slidesPerView={3}
-                    loop={true}
-                    autoplay={{
-                        delay: 3000, // Delay in milliseconds between slides
-                        disableOnInteraction: false, // Autoplay won't stop on interaction
-                      }}
-                    speed={1000}
-                    autoplaySpeed={2000}
-                    effect={'coverflow'}
-                    grabCursor={true}
-                    centeredSlides={true}
-                    coverflowEffect={{
-                        rotate: 0,
-                        stretch: 0,
-                        depth: 50,
-                        modifier: 1,
-                        slideShadows: false, 
-                      }}
-                    className="tournament-grid"
-                >
-                    {tournaments.slice(0, 6).map((ele, index) => (
-                        <SwiperSlide key={index}>
-                            <div className="tournament-card">
-                                <div className="tournament-image">
-                                    <img src={ele.image} alt="" />
+                <div className="section-bottom">
+                    <div className="event">
+                        <div className="event-left">
+                            <img src={image1} alt="" />
+                        </div>
+                        <div className="event-right">
+                            <h1>Rack 'Em Up Challenge</h1>
+                            <h2>Single Elimination Tournament</h2>
+                            <div className="details">
+                                <div className="date">
+                                    <h3>When</h3>
+                                    <h4>25 DEC 2024</h4>
                                 </div>
-                                <div className="tournament-details">
-                                    <div className="top">
-                                        <div className="left">
-                                            <h3>{ele.name}</h3>
-                                            <p>{ele.type}</p>
-                                            <p>At {ele.clubName}</p>
-                                        </div>
-                                        <div className="right">
-                                            <p className="price">AED {ele.fees}</p>
-                                            <p className="dateNTime">{ele.date} at {ele.time}</p>
-                                            <button>Register Now</button>
-                                        </div>
-                                    </div>
+                                <div className="date">
+                                    <h3>Where</h3>
+                                    <h4>The Velvet Lounge</h4>
+                                    <h4>Al Barsha</h4>
                                 </div>
                             </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                            <button className="btn-style">Book Now</button>
+                        </div>
+                    </div>
+                    <div className="event second">
+                        <div className="event-left">
+                            <img src={image2} alt="" />
+                        </div>
+                        <div className="event-right">
+                            <h1>The Cue Masters Cup</h1>
+                            <h2>Ladder Tournament</h2>
+                            <div className="details">
+                                <div className="date">
+                                    <h3>When</h3>
+                                    <h4>30 DEC 2024</h4>
+                                </div>
+                                <div className="place">
+                                    <h3>Where</h3>
+                                    <h4>Blue Lagoon Bar</h4>
+                                    <h4>Dubai Marina</h4>
+                                </div>
+                            </div>
+                            <button className="btn-style">Book Now</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     )

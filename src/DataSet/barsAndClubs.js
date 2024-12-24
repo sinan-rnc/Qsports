@@ -1,9 +1,15 @@
-import image1 from "../Assets/Banner/bar-601302_1280.jpg"
-import image2 from "../Assets/Banner/bar-601325_1280.jpg"
-import image3 from "../Assets/Banner/club-378021_1280.jpg"
-import image4 from "../Assets/Banner/hero-banner.jpg"
-import image5 from "../Assets/Banner/pool-5319619_1280.jpg"
-import image6 from "../Assets/Banner/paris-919396_1280.jpg"
+import image1 from "../Assets/Bars&Clubs/1.jpg"
+import image2 from "../Assets/Bars&Clubs/2.jpg"
+import image3 from "../Assets/Bars&Clubs/3.jpg"
+import image4 from "../Assets/Bars&Clubs/4.jpg"
+import image5 from "../Assets/Bars&Clubs/5.jpg"
+import image6 from "../Assets/Bars&Clubs/6.jpg"
+import image7 from "../Assets/Bars&Clubs/7.jpg"
+import image8 from "../Assets/Bars&Clubs/8.jpg"
+import image9 from "../Assets/Bars&Clubs/9.jpg"
+import image10 from "../Assets/Bars&Clubs/10.jpg"
+import image11 from "../Assets/Bars&Clubs/11.jpg"
+import image12 from "../Assets/Bars&Clubs/12.jpg"
 
 export const barsAndClubsNames = [
     "The Velvet Lounge",
@@ -103,7 +109,7 @@ export const barsAndClubsNames = [
         id: 7,
         name: "The Scarlet Room",
         category: "Bar",
-        image: image1,
+        image: image7,
         city: "Al Wasl",
         rating: 4,
         reviews: 19,
@@ -113,7 +119,7 @@ export const barsAndClubsNames = [
         id: 8,
         name: "Echo Bar & Grill",
         category: "Club",
-        image: image2,
+        image: image8,
         city: "Dubai Silicon Oasis",
         rating: 5,
         reviews: 25,
@@ -123,7 +129,7 @@ export const barsAndClubsNames = [
         id: 9,
         name: "Starlight Clubhouse",
         category: "Bar",
-        image: image3,
+        image: image9,
         city: "Discovery Gardens",
         rating: 4,
         reviews: 17,
@@ -133,7 +139,7 @@ export const barsAndClubsNames = [
         id: 10,
         name: "Infinity Lounge",
         category: "Club",
-        image: image4,
+        image: image10,
         city: "Mirdif",
         rating: 5,
         reviews: 30,
@@ -143,7 +149,7 @@ export const barsAndClubsNames = [
         id: 11,
         name: "The Golden Hour Bar",
         category: "Bar",
-        image: image5,
+        image: image11,
         city: "Al Karama",
         rating: 4,
         reviews: 20,
@@ -153,7 +159,7 @@ export const barsAndClubsNames = [
         id: 12,
         name: "Skyline Club",
         category: "Club",
-        image: image6,
+        image: image12,
         city: "Dubai Festival City",
         rating: 5,
         reviews: 35,
@@ -163,7 +169,7 @@ export const barsAndClubsNames = [
         id: 13,
         name: "Crimson Vibes",
         category: "Bar",
-        image: image1,
+        image: image6,
         city: "Jebel Ali",
         rating: 4,
         reviews: 12,
@@ -173,7 +179,7 @@ export const barsAndClubsNames = [
         id: 14,
         name: "The Chill Spot",
         category: "Club",
-        image: image2,
+        image: image7,
         city: "Al Quoz",
         rating: 5,
         reviews: 27,
@@ -183,7 +189,7 @@ export const barsAndClubsNames = [
         id: 15,
         name: "After Dark Lounge",
         category: "Bar",
-        image: image3,
+        image: image10,
         city: "The Greens",
         rating: 5,
         reviews: 16,
@@ -193,7 +199,7 @@ export const barsAndClubsNames = [
         id: 16,
         name: "The Electric Beat",
         category: "Club",
-        image: image4,
+        image: image1,
         city: "Dubai Media City",
         rating: 4,
         reviews: 23,
@@ -223,7 +229,7 @@ export const barsAndClubsNames = [
         id: 19,
         name: "Oasis Bar & Club",
         category: "Bar",
-        image: image1,
+        image: image9,
         city: "Al Twar",
         rating: 4,
         reviews: 22,
@@ -343,7 +349,7 @@ export const barsAndClubsNames = [
         id: 31,
         name: "Crimson Cove Club",
         category: "Bar",
-        image: image1,
+        image: image7,
         city: "Downtown Dubai",
         rating: 5,
         reviews: 30,
@@ -353,7 +359,7 @@ export const barsAndClubsNames = [
         id: 32,
         name: "Golden Hour Bar",
         category: "Club",
-        image: image2,
+        image: image8,
         city: "Palm Jumeirah",
         rating: 5,
         reviews: 30,
